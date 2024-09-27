@@ -41,7 +41,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong> </a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong> </a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -59,7 +59,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -76,7 +76,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -92,7 +92,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -108,7 +108,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -124,7 +124,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -141,7 +141,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -158,7 +158,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
