@@ -22,6 +22,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     Route::group(['prefix' => 'perencanaan'], function () {
         Route::resource('materi', PlanMateriController::class);
+        Route::get('/materi2', [PlanMateriController::class, 'index2'])->name('dashboard2');
+
         // Route::resource('metode', PlanMetodeController::class);
         // Route::resource('indikator', PlanIndikatorController::class);
     });

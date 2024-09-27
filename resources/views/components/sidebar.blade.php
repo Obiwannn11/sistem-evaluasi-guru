@@ -100,7 +100,7 @@
     </a>
     <ul id="forms-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="admin/">
+        <a href="{{ route('dashboard2') }}">
           <i class="bi bi-circle-fill"></i><span>Metode</span>
         </a>
       </li>

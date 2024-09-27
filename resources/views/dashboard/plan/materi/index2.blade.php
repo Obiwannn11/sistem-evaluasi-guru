@@ -16,7 +16,6 @@
             <thead>
                 <tr>
                     <th class="text-center">#</th>
-                    <th class="text-center">ID PENGIRIM KHUSUS SUPERGURU, Bisa show</th>
                     <th class="text-center">Judul File</th>
                     <th class="text-center">File</th>
                     <th class="text-center">Aksi</th>
@@ -28,12 +27,11 @@
                 <?php //foreach ($file as $row) : ?>
                     <tr>
                         <td class="text-center"><?= $i++; ?></td>
-                        <td><a href="/dashboard/user/1/edit">Mustikasari</a></td>
                         <td>Fisika Kelas 11</td>
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > File PDF </a>
+                             <a href="/assets/uploads/file/" target="_blank" > fisika_11.pdf </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -46,12 +44,11 @@
 
                     <tr>
                         <td class="text-center"><?= $i++; ?></td>
-                        <td><a href="">Rahmawati</a></td>
                         <td>Biologi Kelas 11</td>
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > File PDF </a>
+                             <a href="/assets/uploads/file/" target="_blank" > biologi_11.pdf </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -63,12 +60,41 @@
 
                     <tr>
                         <td class="text-center"><?= $i++; ?></td>
-                        <td><a href="">Khadijah</a></td>
                         <td>Matematika Kelas 12</td>
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > File PDF </a>
+                             <a href="/assets/uploads/file/" target="_blank" > matematika_12.pdf </a>
+                        </td>
+                        <td class="text-center text-nowrap">
+
+                            {{-- route('dashboard.update', $materi->id) --}}
+                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><i class='bi bi-pencil-square'></i></a>
+                            <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><?= $i++; ?></td>
+                        <td>Sejarah Kelas 12</td>
+
+                        <td class="text-center">
+                            <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
+                             <a href="/assets/uploads/file/" target="_blank" > sejarah_12.pdf </a>
+                        </td>
+                        <td class="text-center text-nowrap">
+
+                            {{-- route('dashboard.update', $materi->id) --}}
+                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><i class='bi bi-pencil-square'></i></a>
+                            <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><?= $i++; ?></td>
+                        <td>Kimia Kelas 12</td>
+
+                        <td class="text-center">
+                            <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
+                             <a href="/assets/uploads/file/" target="_blank" > kimia_12.pdf </a>
                         </td>
                         <td class="text-center text-nowrap">
 

@@ -14,6 +14,10 @@ class PlanMateriController extends Controller
     {
         return view('dashboard.plan.materi.index');
     }
+    public function index2()
+    {
+        return view('dashboard.plan.materi.index2');
+    }
 
     /**
      * Show the form for creating a new resource.
