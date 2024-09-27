@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->string('judul_plan');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('dokumen_plan');
             $table->enum('jenis', ['metode', 'materi', 'indikator']);
             $table->boolean('status')->default(false);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -10,8 +11,10 @@ class MapelController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        return view('dashboard.evaluasi.index');
+        $mapel = Mapel::all();
+        return view('dashboard.evaluasi.index')->with('mapel', $mapel);
     }
 
     /**

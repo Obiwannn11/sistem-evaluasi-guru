@@ -12,6 +12,7 @@
     </div> --}}
         <div class="mb-3">
             <a class="btn btn-warning" href="" role="button"><strong>Kembali</strong></a>
+            {{-- {{ dd($mapel) }} --}}
         </div>
 
     <div class="table-responsive">
@@ -27,7 +28,7 @@
             <tbody>
 
                 <?php $i = 1 ?>
-                <?php //foreach ($file as $row) : ?>
+                <?php foreach ($mapel as $mapels) : ?>
                     <tr>
                         <td class="text-center"><?= $i++; ?></td>
 
@@ -35,7 +36,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > fisika_11.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->cp }} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -53,7 +54,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > biologi_11.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->atp }} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -70,7 +71,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > matematika_12.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->ma }} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -86,7 +87,23 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > sejarah_12.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->prosem}} </a>
+                        </td>
+                        <td class="text-center text-nowrap">
+
+                            {{-- route('dashboard.update', $materi->id) --}}
+                            <a class="btn btn-warning me-1" href="{{ route('materi.index', ) }}" role="button"><strong>Edit</strong></a>
+                            {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><?= $i++; ?></td>
+
+                        <td>Program Tahunan</td>
+
+                        <td class="text-center">
+                            <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->prota}} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -102,7 +119,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > kimia_12.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->kktp }}</a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -119,7 +136,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > kimia_12.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->bba}} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -136,7 +153,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > kimia_12.pdf </a>
+                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->bonus }}</a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -147,7 +164,8 @@
                     </tr>
 
 
-                <?php //endforeach ?>
+
+                <?php endforeach ?>
 
             </tbody>
         </table>

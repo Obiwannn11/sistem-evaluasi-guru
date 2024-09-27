@@ -15,18 +15,19 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Mustikasari',
+            'nip' => '123451',
             'email' => 'admin@smkmadani.ac.id',
             'password' => bcrypt('password'),
-            'role' => 'superguru', // Atau 'superguru'
+            'role' => true, // Atau 'superguru'
             'foto' => 'noprofil.png'
         ]);
 
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin123@smkmadani.ac.id',
-            'password' => bcrypt('admin123'),
-            'role' => 'superguru', // Atau 'superguru'
-            'foto' => 'noprofil.png'
-        ]);
+        // User::create([
+        //     'name' => 'Admin',
+        //     'email' => 'admin123@smkmadani.ac.id',
+        //     'password' => bcrypt('admin123'),
+        //     'role' => 'superguru', // Atau 'superguru'
+        //     'foto' => 'noprofil.png'
+        // ]);
     }
 }
