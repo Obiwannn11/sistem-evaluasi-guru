@@ -10,6 +10,9 @@
     {{-- <div class="mb-3">
         <a class="btn btn-primary" href="{{ route('materi.create') }}" role="button">Tambah</a>
     </div> --}}
+        <div class="mb-3">
+            <a class="btn btn-warning" href="" role="button"><strong>Kembali</strong></a>
+        </div>
 
     <div class="table-responsive">
         <table class="table table-striped table-bordered w-100" id="data-table">
@@ -148,6 +151,8 @@
 
             </tbody>
         </table>
+
+
     </div>
 
 </div>
