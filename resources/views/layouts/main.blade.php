@@ -80,7 +80,9 @@
     @yield('edit_plan_materi')
     @yield('delete_plan_materi')
 
-
+    @yield('index_evaluasi')
+    @yield('create_evaluasi')
+    @yield('edit_evaluasi')
 
 
 
