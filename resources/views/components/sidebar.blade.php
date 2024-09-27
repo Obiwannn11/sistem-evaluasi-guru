@@ -125,13 +125,13 @@
     </a>
     <ul id="forms-navExe" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="admin/pengumuman">
-          <i class="bi bi-circle-fill"></i><span>Metode</span>
+        <a href="{{ route('file.index') }}">
+          <i class="bi bi-circle-fill"></i><span>Perencanaan</span>
         </a>
       </li>
       <li>
-        <a href="admin/visi">
-          <i class="bi bi-circle-fill"></i><span>Materi</span>
+        <a href="{{ route('file.index') }}">
+          <i class="bi bi-circle-fill"></i><span>Evaluasi</span>
         </a>
       </li>
       <li>
