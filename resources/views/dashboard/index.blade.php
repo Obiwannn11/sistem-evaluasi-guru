@@ -21,7 +21,7 @@
                             <i c lass='bx bx-user'></i>
                         </div> -->
                         <div class="">
-                            <h6><?= "Nama"; ?></h6>
+                            <h6><?= "Mustikasari"; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
         <!-- end user -->
 
         <!-- slide -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
@@ -42,7 +42,7 @@
                             <i class='bx bx-image-alt'></i>
                         </div> -->
                         <div class="">
-                            <h6><?= "Role"; ?></h6>
+                            <h6><?= "Guru Bahasa Inggris"; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                             <i class='bx bx-buildings'></i>
                         </div> -->
                         <div class="">
-                            <h6><?= "Role"; ?></h6>
+                            <h6><?= "Guru"; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -73,11 +73,11 @@
         <!-- end prodi -->
 
         <!-- status perencanaan -->
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
-                    <h5 class="card-title">Status Perencanaan :</h5>
+                    <h5 class="card-title">Status Perencanaan Program Kurikulum Merdeka :</h5>
 
                     <div class="d-flex align-items-center">
                         <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -94,11 +94,11 @@
         <!-- end status perencanaan -->
 
         <!-- status evaluasi -->
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
-                    <h5 class="card-title">Status Evaluasi :</h5>
+                    <h5 class="card-title">Status Evaluasi Program Kurikulum Merdeka :</h5>
 
                     <div class="d-flex align-items-center">
                         <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

@@ -2,7 +2,7 @@
 
 @section('index_evaluasi')
 <div class="card shadow p-3">
-    <h5><strong> Perencanaan</strong> Mata Pelajaran <strong>Kimia Kelas 11</strong></h5>
+    <h5><strong> Perencanaan</strong> Mata Pelajaran <strong>Bahasa Inggris Kelas 11</strong></h5>
 </div>
 
 <div class="card shadow p-3">
@@ -11,7 +11,7 @@
         <a class="btn btn-primary" href="{{ route('materi.create') }}" role="button">Tambah</a>
     </div> --}}
         <div class="mb-3">
-            <a class="btn btn-warning" href="" role="button"><strong>Kembali</strong></a>
+            <a class="btn btn-warning" href="{{ route('dashboard') }}" role="button"><strong>Kembali</strong></a>
             {{-- {{ dd($mapel) }} --}}
         </div>
 
@@ -36,12 +36,12 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->cp }} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}"  > {{ $mapels->cp }} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong> </a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong> </a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -59,7 +59,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -76,7 +76,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -92,7 +92,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -108,7 +108,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -124,7 +124,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -141,7 +141,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>
@@ -158,7 +158,7 @@
                         <td class="text-center text-nowrap">
 
                             {{-- route('dashboard.update', $materi->id) --}}
-                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels->id ) }}" role="button"><strong>Edit</strong></a>
+                            <a class="btn btn-warning me-1" href="{{ route('file.edit', $mapels ) }}" role="button"><strong>Edit</strong></a>
                             {{-- <a class="btn btn-danger button-delete" href="admin/file/hapus.php?id=" role="button"><i class='bi bi-trash'></i></a> --}}
                         </td>
                     </tr>

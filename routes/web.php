@@ -15,6 +15,9 @@ use App\Http\Controllers\PlanMateriController;
 // });
 // Route::get('/', [UserController::class, 'index']);
 
+Route::get('/login', function () {
+    return view('login');
+});
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', [UserController::class, 'home'])->name('dashboard');

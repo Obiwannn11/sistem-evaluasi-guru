@@ -31,8 +31,8 @@
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                    <h6>Nama    : Nurfahira</h6>
-                    <span>Role  : RESI23</span>
+                    <h6>Nama    : Mustikasari</h6>
+                    <span>Role  : Guru</span>
                 </li>
                 <li>
                     <hr class="dropdown-divider">

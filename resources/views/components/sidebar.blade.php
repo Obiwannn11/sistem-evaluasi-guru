@@ -16,7 +16,7 @@
         {{-- cek jika super admin  --}}
         <?php if (true) : ?>
          <!-- dropdown nav 3 -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav2" data-bs-toggle="collapse" href="#">
       <i class="bi bi-gear"></i><span>Setting</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -62,13 +62,13 @@
 
         </ul>
 
-    </li>
+    </li> --}}
     <!-- end dropdown nav 3 -->
 
     <?php endif ?>
 
          <!-- dropdown nav 1 -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
       <i class="bi bi-person-fill"></i><span>Profil</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -89,7 +89,7 @@
         </a>
       </li>
     </ul>
-    </li>
+    </li> --}}
     <!-- End dropdown Nav 1-->
 
 
@@ -143,6 +143,39 @@
     </li>
     <!-- End dropdown Nav exe-->
 
+         <!-- dropdown nav opsi 2 -->
+    <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#forms-navOpsi1" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-book"></i><span>Program Kurikulum Merdeka</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="forms-navOpsi1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="{{ route('file.index') }}">
+          <i class="bi bi-circle-fill"></i><span>Perencanaan</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('file.index') }}">
+          <i class="bi bi-circle-fill"></i><span>Evaluasi</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin/prestasi">
+          <i class="bi bi-circle-fill"></i><span>Indikator Keberhasilan</span>
+        </a>
+      </li>
+    </ul>
+    </li>
+    <!-- End dropdown Nav opsi 2-->
+
+    <!-- dropdown nav opsi 1 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('file.index') }}">
+            <i class="bi bi-book"></i>
+            <span>Program Kurikulum Merdeka</span>
+        </a>
+    </li>
+    <!-- End dropdown Nav opsi 1-->
 
     </ul>
 

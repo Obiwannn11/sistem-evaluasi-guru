@@ -46,7 +46,9 @@ class MapelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $mapels = Mapel::findorfail($id);
+
+        return view('dashboard.evaluasi.edit')->with('mapels', $mapels);
     }
 
     /**
