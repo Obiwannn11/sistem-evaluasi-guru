@@ -1,64 +1,58 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
+use App\Models\Guru;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
 class DokumenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Menampilkan daftar dokumen
     public function index()
     {
-        //
+        $dokumens = Dokumen::with('guru', 'kriteria')->get();
+        return view('dokumens.index', compact('dokumens'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Menampilkan form tambah dokumen
     public function create()
     {
-        //
+        $gurus = Guru::all();
+        $kriterias = Kriteria::all();
+        return view('dokumens.create', compact('gurus', 'kriterias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Menyimpan dokumen baru
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'id_guru' => 'required|exists:gurus,id_guru',
+            'id_kriteria' => 'required|exists:kriterias,id_kriteria',
+            'file_path' => 'required|file|mimes:pdf,doc,docx',
+        ]);
+
+        $path = $request->file('file_path')->store('uploads/dokumen', 'public');
+
+        Dokumen::create([
+            'id_guru' => $validated['id_guru'],
+            'id_kriteria' => $validated['id_kriteria'],
+            'file_path' => $path,
+        ]);
+
+        return redirect()->route('dokumens.index')->with('success', 'Dokumen berhasil diunggah.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Menampilkan detail dokumen
+    public function show(Dokumen $dokumen)
     {
-        //
+        return view('dokumens.show', compact('dokumen'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    // Menghapus dokumen
+    public function destroy(Dokumen $dokumen)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $dokumen->delete();
+        return redirect()->route('dokumens.index')->with('success', 'Dokumen berhasil dihapus.');
     }
 }

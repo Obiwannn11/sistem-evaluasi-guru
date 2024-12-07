@@ -1,64 +1,31 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Evaluasi;
+use App\Models\Guru;
 use Illuminate\Http\Request;
 
 class EvaluasiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Menampilkan daftar evaluasi
     public function index()
     {
-        //
+        $evaluasis = Evaluasi::with('guru')->get();
+        return view('evaluasis.index', compact('evaluasis'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Menyimpan evaluasi baru
     public function store(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'id_guru' => 'required|exists:gurus,id_guru',
+            'tanggal_evaluasi' => 'required|date',
+            'total_skor' => 'required|integer|min:0',
+            'nilai_akhir' => 'required|numeric|min:0|max:100',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        Evaluasi::create($validated);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('evaluasis.index')->with('success', 'Evaluasi berhasil disimpan.');
     }
 }

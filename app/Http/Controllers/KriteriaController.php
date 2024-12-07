@@ -1,64 +1,66 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
 class KriteriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Menampilkan daftar kriteria
     public function index()
     {
-        //
+        $kriterias = Kriteria::all();
+        return view('kriterias.index', compact('kriterias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Menampilkan form tambah kriteria
     public function create()
     {
-        //
+        return view('kriterias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Menyimpan data kriteria baru
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_kriteria' => 'required|string|max:255',
+            'bobot' => 'required|integer|min:0|max:4',
+        ]);
+
+        Kriteria::create($validated);
+
+        return redirect()->route('kriterias.index')->with('success', 'Kriteria berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Menampilkan detail kriteria
+    public function show(Kriteria $kriteria)
     {
-        //
+        return view('kriterias.show', compact('kriteria'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    // Menampilkan form edit kriteria
+    public function edit(Kriteria $kriteria)
     {
-        //
+        return view('kriterias.edit', compact('kriteria'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    // Memperbarui data kriteria
+    public function update(Request $request, Kriteria $kriteria)
     {
-        //
+        $validated = $request->validate([
+            'nama_kriteria' => 'required|string|max:255',
+            'bobot' => 'required|integer|min:0|max:4',
+        ]);
+
+        $kriteria->update($validated);
+
+        return redirect()->route('kriterias.index')->with('success', 'Kriteria berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    // Menghapus data kriteria
+    public function destroy(Kriteria $kriteria)
     {
-        //
+        $kriteria->delete();
+        return redirect()->route('kriterias.index')->with('success', 'Kriteria berhasil dihapus.');
     }
 }
