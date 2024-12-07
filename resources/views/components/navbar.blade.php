@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between ">
             <i class="bi bi-list toggle-sidebar-btn"></i>
             <a href="{{ route('user.index') }}" class="logo d-flex align-items-center mx-4">
-                <img src="{{ asset('images/setting/smkmandar.png') }}" alt="">
+                <img src="{{ asset('images/setting/logo-uin.png') }}" alt="">
                 {{-- BUAT DINAMIS BERDASARKAN SETTING  --}}
                 <span class="d-none d-lg-block mx-2">SMK MANDAR</span>
             </a>
@@ -31,8 +31,8 @@
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                    <h6>Nama    : Mustikasari</h6>
-                    <span>Role  : Guru</span>
+                    <h6>Nama    : Wawan</h6>
+                    <span>Role  : SuperAdmin</span>
                 </li>
                 <li>
                     <hr class="dropdown-divider">

@@ -80,9 +80,7 @@
     @yield('edit_plan_materi')
     @yield('delete_plan_materi')
 
-    @yield('index_evaluasi')
-    @yield('create_evaluasi')
-    @yield('edit_evaluasi')
+
 
 
 
@@ -124,20 +122,6 @@
 <script src="{{ asset('js/main.js') }}"></script>
 
 <script>
-
-    //setting sweetalert
-    $(function() {
-        $(document).on('click', '#simpan1',function(e) {
-            e.preventDefault();
-            Swal.fire({
-            title: "Tersimpan !",
-            text: "Pesan Berhasil Disimpan",
-            icon: "success"
-
-        });
-        })
-    })
-
     $('#form').parsley({
         errorClass: 'is-invalid text-red',
         successClass: 'is-valid',
