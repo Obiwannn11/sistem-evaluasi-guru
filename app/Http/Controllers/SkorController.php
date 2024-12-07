@@ -26,16 +26,30 @@ class SkorController extends Controller
     // Menyimpan skor baru
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'id_guru' => 'required|exists:gurus,id_guru',
-            'id_kriteria' => 'required|exists:kriterias,id_kriteria',
-            'nilai' => 'required|integer|min:0|max:4',
-        ]);
+    $request->validate([
+        'id_guru' => 'required|exists:gurus,id',
+        'skors' => 'required|array',
+    ]);
 
-        Skor::create($validated);
+    // Ambil ID guru
+    $idGuru = $request->id_guru;
 
-        return redirect()->route('skors.index')->with('success', 'Skor berhasil ditambahkan.');
+    // Loop setiap kriteria dan simpan skor
+    foreach ($request->skors as $idKriteria => $nilai) {
+        Skor::updateOrCreate(
+            [
+                'id_guru' => $idGuru,
+                'id_kriteria' => $idKriteria,
+            ],
+            [
+                'nilai' => $nilai,
+            ]
+        );
     }
+
+    return redirect()->route('skors.index')->with('success', 'Nilai berhasil disimpan!');
+    }
+
 
     // Menampilkan detail skor
     public function show(Skor $skor)
