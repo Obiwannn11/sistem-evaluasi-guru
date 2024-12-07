@@ -3,7 +3,7 @@
 
         <div class="d-flex align-items-center justify-content-between ">
             <i class="bi bi-list toggle-sidebar-btn"></i>
-            <a href="{{ route('user.index') }}" class="logo d-flex align-items-center mx-4">
+            <a href="" class="logo d-flex align-items-center mx-4">
                 <img src="{{ asset('images/setting/logo-uin.png') }}" alt="">
                 {{-- BUAT DINAMIS BERDASARKAN SETTING  --}}
                 <span class="d-none d-lg-block mx-2">SMK MANDAR</span>
@@ -39,7 +39,7 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="{{ route('user.index') }}">
+                    <a class="dropdown-item d-flex align-items-center" href="">
                         <i class="bi bi-person"></i>
                         <span>My Profile</span>
                     </a>
@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="{{ route('user.index') }}">
+                    <a class="dropdown-item d-flex align-items-center" href="">
                         <i class="bi bi-gear"></i>
                         <span>Account Settings</span>
                     </a>
@@ -59,7 +59,7 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="{{ route('user.index') }}">
+                    <a class="dropdown-item d-flex align-items-center" href="">
                         <i class='bi bi-house-door'></i>
                         <span>Beranda</span>
                     </a>

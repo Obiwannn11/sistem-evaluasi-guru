@@ -62,7 +62,7 @@
     <main id="main" class="main">
 
     @yield('content')
-    @yield('index_profil')
+    {{-- @yield('index_profil')
     @yield('ubah_profil')
 
     @yield('index_user')
@@ -78,7 +78,7 @@
     @yield('index_plan_materi')
     @yield('create_plan_materi')
     @yield('edit_plan_materi')
-    @yield('delete_plan_materi')
+    @yield('delete_plan_materi') --}}
 
 
 

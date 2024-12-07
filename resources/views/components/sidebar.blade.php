@@ -3,18 +3,14 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard') }}">
-                <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="<i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
 
         {{-- cek jika super admin  --}}
-        <?php if (true) : ?>
          <!-- dropdown nav 3 -->
     <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav2" data-bs-toggle="collapse" href="#">
@@ -25,7 +21,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('user.index') }}">
+                <a class="nav-link collapsed" href="">
                     <i class='bx bx-user'></i>
                     <span>User</span>
                 </a>
@@ -65,7 +61,6 @@
     </li>
     <!-- end dropdown nav 3 -->
 
-    <?php endif ?>
 
          <!-- dropdown nav 1 -->
     <li class="nav-item">
@@ -105,7 +100,7 @@
         </a>
       </li>
       <li>
-        <a href="{{ route('materi.index') }}">
+        <a href="">
           <i class="bi bi-circle-fill"></i><span>Materi</span>
         </a>
       </li>
