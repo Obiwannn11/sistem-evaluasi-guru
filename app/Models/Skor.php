@@ -12,12 +12,12 @@ class Skor extends Model
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'id_guru');
+        return $this->belongsTo(Guru::class);
     }
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class, 'id_kriteria');
+        return $this->belongsTo(Kriteria::class);
     }
 }
 

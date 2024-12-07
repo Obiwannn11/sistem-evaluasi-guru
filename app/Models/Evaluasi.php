@@ -12,7 +12,7 @@ class Evaluasi extends Model
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'id_guru');
+        return $this->belongsTo(Guru::class);
     }
 }
 
