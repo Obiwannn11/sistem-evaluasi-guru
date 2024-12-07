@@ -50,9 +50,17 @@
         </li>
         {{-- end of nav item Kriteria --}}
 
+        {{-- nav item skor --}}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('skors.index') }}" <i class="bi bi-grid"></i>
+                <i class="bi bi-journal-check"></i><span>Skor</span>
+            </a>
+        </li>
+        {{-- end of nav item skor --}}
+
         {{-- nav item evaluasi --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('evaluasis.index') }}" <i class="bi bi-grid"></i> 
+            <a class="nav-link collapsed" href="{{ route('evaluasis.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-journal-check"></i><span>Evaluasi</span>
             </a>
         </li>

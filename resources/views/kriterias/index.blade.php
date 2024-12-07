@@ -20,8 +20,8 @@
                     <td>{{ $kriteria->nama_kriteria }}</td>
                     <td>{{ $kriteria->bobot }}</td>
                     <td>
-                        <a href="{{ route('kriterias.edit', $kriteria) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('kriterias.destroy', $kriteria) }}" method="POST" style="display: inline-block;">
+                        <a href="{{ route('kriterias.edit', $kriteria->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('kriterias.destroy', $kriteria->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Hapus</button>

@@ -2,23 +2,25 @@
 
 @section('content')
 <div class="container">
-    <h1>Hasil Evaluasi</h1>
+    <h1>Hasil Evaluasi Kinerja Guru</h1>
     <table class="table mt-3">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Guru</th>
-                <th>Total Skor</th>
+                <th>Total Skor Diperoleh</th>
+                <th>Total Skor Maksimal</th>
                 <th>Persentase</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($evaluasis as $evaluasi)
+            @foreach ($evaluasiResults as $result)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $evaluasi->guru->nama }}</td>
-                    <td>{{ $evaluasi->total_skor }}</td>
-                    <td>{{ $evaluasi->persentase }}%</td>
+                    <td>{{ $result['guru']->nama }}</td>
+                    <td>{{ $result['total_skor'] }}</td>
+                    <td>{{ $totalSkorMaksimal }}</td>
+                    <td>{{ $result['persentase'] }}%</td>
                 </tr>
             @endforeach
         </tbody>

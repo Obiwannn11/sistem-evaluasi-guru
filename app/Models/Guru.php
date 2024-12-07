@@ -24,5 +24,7 @@ class Guru extends Model
     {
         return $this->hasMany(Evaluasi::class, 'id_guru');
     }
+
+    
 }
 
