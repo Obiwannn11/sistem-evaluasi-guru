@@ -54,7 +54,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->atp }} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" >Lihat File </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -71,7 +71,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->ma }} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" class="btn btn-primary" ><i class="bi bi-eye"></i> </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -87,7 +87,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->prosem}} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" class="btn btn-success" > Lihat File</a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -103,7 +103,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->prota}} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" class="btn btn-success" > <i class="bi bi-eye"></i> Lihat File </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -119,7 +119,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->kktp }}</a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" class="btn btn-primary" > <i class="bi bi-eye"></i> Lihat</a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -136,7 +136,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->bba}} </a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" > {{ $mapels->bba}} </a>
                         </td>
                         <td class="text-center text-nowrap">
 
@@ -153,7 +153,7 @@
 
                         <td class="text-center">
                             <!-- <img src="/assets/uploads/file/ $row['isi_file']; ?>" alt=" //$row['judul_file'];" width="70"> -->
-                             <a href="/assets/uploads/file/" target="_blank" > {{ $mapels->bonus }}</a>
+                             <a href="{{ asset('file/capaian_pembelajaran.pdf') }}" > {{ $mapels->bonus }}</a>
                         </td>
                         <td class="text-center text-nowrap">
 

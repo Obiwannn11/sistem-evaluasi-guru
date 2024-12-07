@@ -118,8 +118,8 @@
     </li>
     <!-- End dropdown Nav 2-->
 
-         <!-- dropdown nav exe -->
-    <li class="nav-item">
+         <!-- dropdown nav exexx -->
+    {{-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-navExe" data-bs-toggle="collapse" href="#">
       <i class="bi bi-journal-check"></i><span>Evaluasi</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -140,11 +140,11 @@
         </a>
       </li>
     </ul>
-    </li>
-    <!-- End dropdown Nav exe-->
+    </li> --}}
+    <!-- End dropdown Nav exexx-->
 
-         <!-- dropdown nav opsi 2 -->
-    <li class="nav-item">
+         <!-- dropdown nav opsi 2xx -->
+    {{-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-navOpsi1" data-bs-toggle="collapse" href="#">
       <i class="bi bi-book"></i><span>Program Kurikulum Merdeka</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -165,17 +165,57 @@
         </a>
       </li>
     </ul>
-    </li>
-    <!-- End dropdown Nav opsi 2-->
+    </li> --}}
+    <!-- End dropdown Nav opsi 2xx-->
 
-    <!-- dropdown nav opsi 1 -->
-    <li class="nav-item">
+    <!-- dropdown nav opsi 1xxx -->
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('file.index') }}">
             <i class="bi bi-book"></i>
             <span>Program Kurikulum Merdeka</span>
         </a>
+    </li> --}}
+    <!-- End dropdown Nav opsi 1xxx-->
+
+
+    <!-- dropdown nav opsi 2 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('kriterias.index') }}">
+            <i class="bi bi-book"></i>
+            <span>Kriteria</span>
+        </a>
     </li>
-    <!-- End dropdown Nav opsi 1-->
+    <!-- End dropdown Nav opsi 2-->
+
+    <!-- dropdown nav opsi 3 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('gurus.index') }}">
+            <i class="bi bi-person"></i>
+            <span>Guru</span>
+        </a>
+    </li>
+    <!-- End dropdown Nav opsi 3-->
+
+    <!-- dropdown nav opsi 4 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('penilaians.index') }}">
+            <i class="bi bi-list-check"></i>
+            <span>Penilaian</span>
+        </a>
+    </li>
+    <!-- End dropdown Nav opsi 4-->
+
+    <!-- dropdown nav opsi bobot -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('evaluasi.index') }}">
+            <i class="bi bi-journal-check"></i>
+            <span>Evaluasi</span>
+        </a>
+    </li>
+    <!-- End dropdown Nav opsi bobot-->
+
+
+
 
     </ul>
 

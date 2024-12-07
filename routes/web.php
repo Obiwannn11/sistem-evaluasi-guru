@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\EvaluasiController;
+use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PlanMateriController;
 
 // Route::get('/', function () {
@@ -15,7 +19,7 @@ use App\Http\Controllers\PlanMateriController;
 // });
 // Route::get('/', [UserController::class, 'index']);
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('login');
 });
 
@@ -45,5 +49,11 @@ Route::group(['prefix' => 'dashboard'], function () {
 //     Route::put('/profile', 'UserController@update')->name('admin.profile.update');
 
 // });
+
+Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
+Route::resource('/gurus', GuruController::class);
+Route::resource('/kriterias', KriteriaController::class);
+Route::resource('/penilaians', PenilaianController::class);
+
 
 // Route::get('/',[HomeController:class, 'index']);
