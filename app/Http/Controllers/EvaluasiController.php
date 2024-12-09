@@ -32,6 +32,7 @@ class EvaluasiController extends Controller
             'guru' => $guru,
             'total_skor' => $totalSkorDiperoleh,
             'persentase' => number_format($persentase, 2), // Format dua desimal
+            'total_skor_maksimal' => number_format($totalSkorMaksimal)
         ];
     }
 

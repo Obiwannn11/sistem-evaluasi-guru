@@ -33,7 +33,7 @@
                     @foreach ($kriterias as $kriteria)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $kriteria->nama }}</td>
+                            <td>{{ $kriteria->nama_kriteria }}</td>
                             <td>
                                 <select name="skors[{{ $kriteria->id }}]" class="form-control" required>
                                     <option value="" selected disabled>-- Pilih Nilai --</option>

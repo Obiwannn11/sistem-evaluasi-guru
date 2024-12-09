@@ -13,6 +13,13 @@ class SkorController extends Controller
     {
         $skors = Skor::with('guru', 'kriteria')->get();
         return view('skors.index', compact('skors'));
+
+        // Alternatif query builder tanpa Eloquent Model jika mengambil kolom spesifik dari tabel lain
+        // $skors = Skor::with(['guru' => function ($query) {
+        //     $query->select('id', 'nama', 'email');
+        // }, 'kriteria' => function ($query) {
+        //     $query->select('id', 'nama_kriteria');
+        // }])->get();
     }
 
     // Menampilkan form tambah skor

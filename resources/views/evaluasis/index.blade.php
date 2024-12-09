@@ -14,12 +14,13 @@
             </tr>
         </thead>
         <tbody>
+            {{ dd($evaluasiResults) }}
             @foreach ($evaluasiResults as $result)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $result['guru']->nama }}</td>
                     <td>{{ $result['total_skor'] }}</td>
-                    <td>{{ $totalSkorMaksimal }}</td>
+                    <td>{{ $result['total_skor_maksimal'] }}</td>
                     <td>{{ $result['persentase'] }}%</td>
                 </tr>
             @endforeach
