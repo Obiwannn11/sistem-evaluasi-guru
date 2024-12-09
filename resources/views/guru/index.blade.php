@@ -1,41 +1,35 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
-    <h1>Daftar Guru</h1>
-    <a href="{{ route('gurus.create') }}" class="btn btn-primary">Tambah Guru</a>
-
-    @if (session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($gurus as $guru)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $guru->nama }}</td>
-                    <td>{{ $guru->email }}</td>
-                    <td>
-                        {{-- <a href="{{ route('gurus.show', $guru) }}" class="btn btn-info">Detail</a> --}}
-                        <a href="{{ route('gurus.edit', $guru->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('gurus.destroy', $guru->id) }}" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+<h1>Daftar Guru</h1>
+<a href="{{ route('guru.create') }}" class="btn btn-primary">Tambah Guru</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>NIP</th>
+            <th>Email</th>
+            <th>Telepon</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($guru as $item)
+        <tr>
+            <td>{{ $item->nama }}</td>
+            <td>{{ $item->nip }}</td>
+            <td>{{ $item->email }}</td>
+            <td>{{ $item->telepon }}</td>
+            <td>
+                <a href="{{ route('guru.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                <form action="{{ route('guru.destroy', $item->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection
