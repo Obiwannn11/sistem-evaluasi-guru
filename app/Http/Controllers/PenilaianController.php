@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PenilaianController extends Controller
 {
+    public function index()
+    {
+        $evaluasi = Evaluasi::with('penilaian.kriteria')->get();
+        return view('penilaian.index', compact('evaluasi'));
+    }
+
     public function edit($id)
     {
         $evaluasi = Evaluasi::with('penilaian.kriteria')->findOrFail($id);
