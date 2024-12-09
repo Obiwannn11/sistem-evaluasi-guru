@@ -8,51 +8,45 @@ use Illuminate\Http\Request;
 
 class DokumenController extends Controller
 {
-    // Menampilkan daftar dokumen
     public function index()
     {
-        $dokumens = Dokumen::with('guru', 'kriteria')->get();
-        return view('dokumens.index', compact('dokumens'));
+        $dokumen = Dokumen::with('guru', 'kriteria')->get();
+        return view('dokumen.index', compact('dokumen'));
     }
 
-    // Menampilkan form tambah dokumen
     public function create()
     {
-        $gurus = Guru::all();
-        $kriterias = Kriteria::all();
-        return view('dokumens.create', compact('gurus', 'kriterias'));
+        $guru = Guru::all();
+        $kriteria = Kriteria::all();
+        return view('dokumen.create', compact('guru', 'kriteria'));
     }
 
-    // Menyimpan dokumen baru
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_guru' => 'required|exists:gurus,id_guru',
-            'id_kriteria' => 'required|exists:kriterias,id_kriteria',
+            'guru_id' => 'required|exists:guru,id',
+            'kriteria_id' => 'required|exists:kriteria,id',
             'file_path' => 'required|file|mimes:pdf,doc,docx',
         ]);
 
-        $path = $request->file('file_path')->store('uploads/dokumen', 'public');
+        $validated['file_path'] = $request->file('file_path')->store('dokumen');
+        Dokumen::create($validated);
 
-        Dokumen::create([
-            'id_guru' => $validated['id_guru'],
-            'id_kriteria' => $validated['id_kriteria'],
-            'file_path' => $path,
-        ]);
-
-        return redirect()->route('dokumens.index')->with('success', 'Dokumen berhasil diunggah.');
+        return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil diunggah.');
     }
 
-    // Menampilkan detail dokumen
-    public function show(Dokumen $dokumen)
+    public function show($id)
     {
-        return view('dokumens.show', compact('dokumen'));
+        $dokumen = Dokumen::findOrFail($id);
+        return view('dokumen.show', compact('dokumen'));
     }
 
-    // Menghapus dokumen
-    public function destroy(Dokumen $dokumen)
+    public function destroy($id)
     {
+        $dokumen = Dokumen::findOrFail($id);
+        unlink(storage_path('app/' . $dokumen->file_path));
         $dokumen->delete();
-        return redirect()->route('dokumens.index')->with('success', 'Dokumen berhasil dihapus.');
+
+        return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil dihapus.');
     }
 }
