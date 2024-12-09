@@ -36,7 +36,7 @@ Route::resource('dokumen', DokumenController::class)->only(['index', 'create', '
 Route::resource('evaluasi', EvaluasiController::class)->only(['index', 'show', 'create', 'store']);
 
 // Penilaian Routes
-Route::resource('penilaian', PenilaianController::class)->only(['edit', 'update', 'show']);
+Route::resource('penilaian', PenilaianController::class);
 
 
 // Route::resource('/gurus', GuruController::class);
