@@ -19,18 +19,18 @@ return new class extends Migration
 
         // Insert predefined kriteria
         DB::table('kriterias')->insert([
-            ['nama' => 'Kalender Pendidikan', 'tipe' => 'ordinal', 'max_nilai' => '2'],
-            ['nama' => 'Program Tahunan', 'tipe' => 'ordinal', 'max_nilai' => '2'],
-            ['nama' => 'Program Semester', 'tipe' => 'ordinal', 'max_nilai' => '2'],
-            ['nama' => 'Silabus', 'tipe' => 'ordinal', 'max_nilai' => '3'],
-            ['nama' => 'Rencana Pelaksanaan Pembelajaran', 'tipe' => 'ordinal', 'max_nilai' => '3'],
-            ['nama' => 'Jadwal Tatap Muka', 'tipe' => 'ordinal', 'max_nilai' => '1'],
-            ['nama' => 'Agenda Harian', 'tipe' => 'ordinal', 'max_nilai' => '2'],
-            ['nama' => 'Daftar Nilai', 'tipe' => 'numerik', 'max_nilai' => '100'],
-            ['nama' => 'Kriteria Ketuntasan Minimal', 'tipe' => 'numerik', 'max_nilai' => '100'],
-            ['nama' => 'Absen Siswa', 'tipe' => 'persentase', 'max_nilai' => '100'],
-            ['nama' => 'Buku Pegangan Guru', 'tipe' => 'ordinal', 'max_nilai' => '1'],
-            ['nama' => 'Buku Pegangan Siswa', 'tipe' => 'ordinal', 'max_nilai' => '1'],
+            ['nama' => 'Kalender Pendidikan', 'tipe' => 'ordinal', 'max_nilai' => '2', 'bobot' => '0.05'],
+            ['nama' => 'Program Tahunan', 'tipe' => 'ordinal', 'max_nilai' => '2', 'bobot' => '0.07'],
+            ['nama' => 'Program Semester', 'tipe' => 'ordinal', 'max_nilai' => '2', 'bobot' => '0.07'],
+            ['nama' => 'Silabus', 'tipe' => 'ordinal', 'max_nilai' => '3', 'bobot' => '0.08'],
+            ['nama' => 'Rencana Pelaksanaan Pembelajaran', 'tipe' => 'ordinal', 'max_nilai' => '3', 'bobot' => '0.10'],
+            ['nama' => 'Jadwal Tatap Muka', 'tipe' => 'ordinal', 'max_nilai' => '1', 'bobot' => '0.05'],
+            ['nama' => 'Agenda Harian', 'tipe' => 'ordinal', 'max_nilai' => '2', 'bobot' => '0.08'],
+            ['nama' => 'Daftar Nilai', 'tipe' => 'numerik', 'max_nilai' => '100', 'bobot' => '0.15'],
+            ['nama' => 'Kriteria Ketuntasan Minimal', 'tipe' => 'numerik', 'max_nilai' => '100', 'bobot' => '0.10'],
+            ['nama' => 'Absen Siswa', 'tipe' => 'persentase', 'max_nilai' => '100', 'bobot' => '0.15'],
+            ['nama' => 'Buku Pegangan Guru', 'tipe' => 'ordinal', 'max_nilai' => '1', 'bobot' => '0.05'],
+            ['nama' => 'Buku Pegangan Siswa', 'tipe' => 'ordinal', 'max_nilai' => '1', 'bobot' => '0.05'],
         ]);
     }
 
