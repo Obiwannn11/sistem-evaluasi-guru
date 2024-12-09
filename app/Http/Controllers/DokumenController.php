@@ -25,8 +25,8 @@ class DokumenController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'guru_id' => 'required|exists:guru,id',
-            'kriteria_id' => 'required|exists:kriteria,id',
+            'guru_id' => 'required|exists:gurus,id',
+            'kriteria_id' => 'required|exists:kriterias,id',
             'file_path' => 'required|file|mimes:pdf,doc,docx',
         ]);
 
