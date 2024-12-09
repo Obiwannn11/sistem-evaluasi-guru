@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Dokumen;
 use App\Models\Guru;
+use App\Models\Dokumen;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DokumenController extends Controller
 {
@@ -40,6 +41,28 @@ class DokumenController extends Controller
         $dokumen = Dokumen::findOrFail($id);
         return view('dokumen.show', compact('dokumen'));
     }
+
+    public function update(Request $request, Dokumen $dokumen)
+{
+    $request->validate([
+        'file_path' => 'required|file|mimes:pdf,doc,docx|max:4096',
+    ]);
+
+    // Hapus file lama jika ada
+    if ($dokumen->file_path) {
+        Storage::delete($dokumen->file_path);
+    }
+
+    // Simpan file baru
+    $filePath = $request->file('file_path')->store('dokumen');
+
+    $dokumen->update([
+        'file_path' => $filePath,
+    ]);
+
+    return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil diperbarui!');
+}
+
 
     public function destroy($id)
     {
