@@ -7,7 +7,7 @@ class CreatePenilaianTable extends Migration
 {
     public function up()
     {
-        Schema::create('penilaian', function (Blueprint $table) {
+        Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
             $table->foreignId('evaluasi_id')->constrained('evaluasi')->onDelete('cascade');
             $table->foreignId('kriteria_id')->constrained('kriteria')->onDelete('cascade');

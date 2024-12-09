@@ -7,7 +7,7 @@ class CreateDokumenTable extends Migration
 {
     public function up()
     {
-        Schema::create('dokumen', function (Blueprint $table) {
+        Schema::create('dokumens', function (Blueprint $table) {
             $table->id();
             $table->foreignId('guru_id')->constrained('guru')->onDelete('cascade');
             $table->foreignId('kriteria_id')->constrained('kriteria')->onDelete('cascade');
