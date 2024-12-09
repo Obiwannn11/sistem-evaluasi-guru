@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKriteriaTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -16,7 +16,7 @@ class CreateKriteriaTable extends Migration
         });
 
         // Insert predefined kriteria
-        DB::table('kriteria')->insert([
+        DB::table('kriterias')->insert([
             ['nama' => 'Kalender Pendidikan', 'tipe' => 'ordinal'],
             ['nama' => 'Program Tahunan', 'tipe' => 'ordinal'],
             ['nama' => 'Program Semester', 'tipe' => 'ordinal'],
@@ -34,6 +34,6 @@ class CreateKriteriaTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('kriteria');
+        Schema::dropIfExists('kriterias');
     }
-}
+};

@@ -3,7 +3,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuruTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -19,6 +19,6 @@ class CreateGuruTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('guru');
+        Schema::dropIfExists('gurus');
     }
-}
+};
