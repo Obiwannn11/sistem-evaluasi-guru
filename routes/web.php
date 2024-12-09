@@ -21,11 +21,28 @@ use App\Http\Controllers\KriteriaController;
 // Route::get('/', [UserController::class, 'index'])->name('user.index');
 // ----------------------------------------------------------------
 
-Route::resource('/gurus', GuruController::class);
-Route::resource('/kriterias', KriteriaController::class);
-Route::resource('/dokumens', DokumenController::class);
-Route::resource('/skors', SkorController::class);
-Route::resource('/evaluasis', EvaluasiController::class);
+// FIX ROUTER
+// Guru Routes
+Route::resource('guru', GuruController::class);
+
+// Kriteria Routes
+Route::resource('kriteria', KriteriaController::class)->only(['index', 'show']);
+
+// Dokumen Routes
+Route::resource('dokumen', DokumenController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
+
+// Evaluasi Routes
+Route::resource('evaluasi', EvaluasiController::class)->only(['index', 'show', 'create', 'store']);
+
+// Penilaian Routes
+Route::resource('penilaian', PenilaianController::class)->only(['edit', 'update', 'show']);
+
+
+// Route::resource('/gurus', GuruController::class);
+// Route::resource('/kriterias', KriteriaController::class);
+// Route::resource('/dokumens', DokumenController::class);
+// Route::resource('/skors', SkorController::class);
+// Route::resource('/evaluasis', EvaluasiController::class);
 
 // Route::group(['prefix' => 'dashboard'], function () {
 //     Route::get('/', [UserController::class, 'home'])->name('dashboard');
