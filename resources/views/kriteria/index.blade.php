@@ -13,7 +13,7 @@
         @foreach ($kriteria as $item)
         <tr>
             <td>{{ $item->nama }}</td>
-            <td>{{ $item->jenis_nilai }}</td>
+            <td>{{ $item->tipe }}</td>
         </tr>
         @endforeach
     </tbody>
