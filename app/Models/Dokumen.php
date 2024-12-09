@@ -14,11 +14,11 @@ class Dokumen extends Model
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'guru_id');
+        return $this->belongsTo(Guru::class);
     }
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class, 'kriteria_id');
+        return $this->belongsTo(Kriteria::class);
     }
 }

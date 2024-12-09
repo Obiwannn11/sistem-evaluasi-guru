@@ -14,7 +14,7 @@ class Evaluasi extends Model
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'guru_id');
+        return $this->belongsTo(Guru::class);
     }
 
     public function penilaian()
