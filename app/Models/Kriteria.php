@@ -10,7 +10,7 @@ class Kriteria extends Model
 
     protected $table = 'kriterias';
 
-    protected $fillable = ['nama', 'tipe'];
+    protected $fillable = ['nama', 'maks_nilai', 'bobot'];
 
     public function penilaian()
     {
