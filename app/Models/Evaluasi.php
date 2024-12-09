@@ -8,7 +8,7 @@ class Evaluasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'evaluasi';
+    protected $table = 'evaluasis';
 
     protected $fillable = ['guru_id'];
 

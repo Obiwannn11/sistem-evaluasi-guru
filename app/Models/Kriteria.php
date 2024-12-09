@@ -8,7 +8,7 @@ class Kriteria extends Model
 {
     use HasFactory;
 
-    protected $table = 'kriteria';
+    protected $table = 'kriterias';
 
     protected $fillable = ['nama', 'tipe'];
 

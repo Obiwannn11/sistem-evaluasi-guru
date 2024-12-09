@@ -8,7 +8,7 @@ class Dokumen extends Model
 {
     use HasFactory;
 
-    protected $table = 'dokumen';
+    protected $table = 'dokumens';
 
     protected $fillable = ['guru_id', 'kriteria_id', 'file_path'];
 
