@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\PenilaianController;
 
 
 // CONTOH ROUTING

@@ -6,72 +6,52 @@ use Illuminate\Http\Request;
 
 class GuruController extends Controller
 {
-    // Menampilkan daftar guru
     public function index()
     {
-        $gurus = Guru::all();
-        return view('gurus.index', compact('gurus'));
+        $guru = Guru::all();
+        return view('guru.index', compact('guru'));
     }
 
-    // Menampilkan form tambah guru
     public function create()
     {
-        return view('gurus.create');
+        return view('guru.create');
     }
 
-    // Menyimpan data guru baru
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|unique:gurus,email',
-            'password' => 'required|string|min:6',
+            'nama' => 'required',
+            'nip' => 'required|unique:guru',
+            'email' => 'required|email|unique:guru',
+            'telepon' => 'required',
         ]);
 
-        Guru::create([
-            'nama' => $validated['nama'],
-            'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
-        ]);
-
-        return redirect()->route('gurus.index')->with('success', 'Guru berhasil ditambahkan.');
+        Guru::create($validated);
+        return redirect()->route('guru.index')->with('success', 'Guru berhasil ditambahkan.');
     }
 
-    // Menampilkan detail guru
-    public function show(Guru $guru)
+    public function edit($id)
     {
-        return view('gurus.show', compact('guru'));
+        $guru = Guru::findOrFail($id);
+        return view('guru.edit', compact('guru'));
     }
 
-    // Menampilkan form edit guru
-    public function edit(Guru $guru)
-    {
-        return view('gurus.edit', compact('guru'));
-    }
-
-    // Memperbarui data guru
-    public function update(Request $request, Guru $guru)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|unique:gurus,email,' . $guru->id_guru,
-            'password' => 'nullable|string|min:6',
+            'nama' => 'required',
+            'nip' => 'required|unique:guru,nip,' . $id,
+            'email' => 'required|email|unique:guru,email,' . $id,
+            'telepon' => 'required',
         ]);
 
-        $guru->update([
-            'nama' => $validated['nama'],
-            'email' => $validated['email'],
-            'password' => $validated['password'] ? bcrypt($validated['password']) : $guru->password,
-        ]);
-
-        return redirect()->route('gurus.index')->with('success', 'Data guru berhasil diperbarui.');
+        Guru::findOrFail($id)->update($validated);
+        return redirect()->route('guru.index')->with('success', 'Guru berhasil diperbarui.');
     }
 
-    // Menghapus data guru
-    public function destroy(Guru $guru)
+    public function destroy($id)
     {
-        $guru->delete();
-        return redirect()->route('gurus.index')->with('success', 'Guru berhasil dihapus.');
+        Guru::findOrFail($id)->delete();
+        return redirect()->route('guru.index')->with('success', 'Guru berhasil dihapus.');
     }
 }
-
