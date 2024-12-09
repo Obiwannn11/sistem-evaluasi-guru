@@ -42,6 +42,14 @@
         </li>
         {{-- end of nav item guru --}}
 
+        {{-- nav item dokumen --}}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dokumen.index') }}" <i class='bi bi-grid'></i>
+                <i class="bi bi-file-earmark"></i><span>Dokumen</span>
+            </a>
+        </li>
+        {{-- end of nav item dokumen --}}
+
         {{-- nav item Kriteria --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('kriteria.index') }}" <i class="bi bi-grid"></i>
