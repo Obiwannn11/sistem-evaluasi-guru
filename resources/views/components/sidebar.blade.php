@@ -36,7 +36,7 @@
 
         {{-- nav item guru --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('gurus.index') }}" <i class='bi bi-grid'></i>
+            <a class="nav-link collapsed" href="{{ route('guru.index') }}" <i class='bi bi-grid'></i>
                 <i class="bi bi-person"></i><span>Guru</span>
             </a>
         </li>
@@ -44,23 +44,31 @@
 
         {{-- nav item Kriteria --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('kriterias.index') }}" <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="{{ route('kriteria.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-list-check"></i><span>Kriteria</span>
             </a>
         </li>
         {{-- end of nav item Kriteria --}}
 
         {{-- nav item skor --}}
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('skors.index') }}" <i class="bi bi-grid"></i>
+        {{-- <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('skor.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-journal-check"></i><span>Skor</span>
             </a>
-        </li>
+        </li> --}}
         {{-- end of nav item skor --}}
+
+        {{-- nav item penilaian --}}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('penilaian.index') }}" <i class="bi bi-grid"></i>
+                <i class="bi bi-journal-check"></i><span>Penilaian</span>
+            </a>
+        </li>
+        {{-- end of nav item penilaian --}}
 
         {{-- nav item evaluasi --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('evaluasis.index') }}" <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="{{ route('evaluasi.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-journal-check"></i><span>Evaluasi</span>
             </a>
         </li>
