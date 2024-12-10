@@ -9,7 +9,13 @@ return new class extends Migration
     {
         Schema::create('evaluasis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('guru_id')->constrained('gurus')->onDelete('cascade');
+            $table->foreignId('guru_id')
+                ->constrained('gurus')
+                ->onDelete('cascade');
+            $table->foreignId('kriteria_id')
+                ->constrained('kriterias')
+                ->onDelete('cascade');
+            $table->decimal('nilai', 5, 2)->nullable(); // Menyimpan nilai dengan format desimal (maksimal 100.00)
             $table->timestamps();
         });
     }
