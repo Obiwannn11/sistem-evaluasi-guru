@@ -10,7 +10,7 @@ class Evaluasi extends Model
 
     protected $table = 'evaluasis';
 
-    protected $fillable = ['guru_id'];
+    protected $fillable = ['guru_id', 'kriteria_id', 'nilai', 'komentar'];
 
     public function guru()
     {
@@ -20,5 +20,10 @@ class Evaluasi extends Model
     public function penilaian()
     {
         return $this->hasMany(Penilaian::class, 'evaluasi_id');
+    }
+
+    public function kriteria()
+    {
+        return $this->belongsTo(Kriteria::class);
     }
 }
