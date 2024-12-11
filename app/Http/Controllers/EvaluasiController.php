@@ -84,10 +84,6 @@ class EvaluasiController extends Controller
     return round($totalScore, 3);
     }
 
-    public function rekapitulasi()
-    {
-    $guru = Guru::with(['evaluasi.kriteria'])->get(); // Memuat data guru beserta evaluasinya
-    return view('evaluasi.rekapitulasi', compact('guru'));
-    }
+   
 
 }
