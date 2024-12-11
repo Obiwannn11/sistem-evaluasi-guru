@@ -14,11 +14,11 @@ class Penilaian extends Model
 
     public function evaluasi()
     {
-        return $this->belongsTo(Evaluasi::class, 'evaluasi_id');
+        return $this->belongsTo(Evaluasi::class);
     }
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class, 'kriteria_id');
+        return $this->belongsTo(Kriteria::class);
     }
 }
