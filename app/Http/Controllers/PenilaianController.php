@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Evaluasi;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
@@ -9,9 +10,10 @@ class PenilaianController extends Controller
 {
     public function index()
     {
+        $guru = Guru::with(['evaluasi.kriteria'])->get(); // Memuat data guru beserta evaluasinya
         $evaluasi = Evaluasi::with('guru')->get();
         $kriteria = Evaluasi::with('kriteria')->get();
-        return view('penilaian.index', compact('evaluasi', 'kriteria'));
+        return view('penilaian.index', compact('evaluasi', 'kriteria', 'guru'));
     }
 
     public function edit($id)
