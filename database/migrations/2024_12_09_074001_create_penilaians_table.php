@@ -9,6 +9,7 @@ return new class extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('guru_id')->constrained('gurus')->onDelete('cascade');
             $table->foreignId('evaluasi_id')->constrained('evaluasis')->onDelete('cascade');
             $table->foreignId('kriteria_id')->constrained('kriterias')->onDelete('cascade');
             $table->float('nilai'); // Nilai yang diberikan kepala sekolah
