@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Evaluasi Kinerja Guru: {{ $guru->nama }}</h1>
+<h1>Evaluasi Guru: {{ $guru->nama }}</h1>
+
 <form action="{{ route('evaluasi.store') }}" method="POST">
     @csrf
     <input type="hidden" name="guru_id" value="{{ $guru->id }}">
@@ -10,44 +11,48 @@
         <thead>
             <tr>
                 <th>Kriteria</th>
-                <th>File</th>
+                <th>Dokumen</th>
                 <th>Nilai</th>
                 <th>Komentar</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($kriteria as $item)
+            @foreach ($kriteria as $k)
             <tr>
-                <td>{{ $item->nama }}</td>
+                <td>{{ $k->nama }}</td>
                 <td>
-                    @php
-                        $dokumen = $guru->dokumen->where('kriteria_id', $item->id)->first();
-                    @endphp
-                    @if ($dokumen)
-                    <a href="{{ asset('storage/' . $dokumen->file_path) }}" target="_blank">Lihat File</a>
+                    @if ($guru->dokumen->where('kriteria_id', $k->id)->first())
+                        <a href="{{ Storage::url($guru->dokumen->where('kriteria_id', $k->id)->first()->path) }}" target="_blank">Lihat Dokumen</a>
                     @else
-                    <span class="text-danger">Belum Diunggah</span>
+                        <span class="text-danger">Belum Diunggah</span>
                     @endif
                 </td>
                 <td>
-                    @if ($item->jenis_nilai === 'ordinal')
-                    <select name="nilai[{{ $item->id }}]" class="form-control" required>
-                        <option value="0">0 - Tidak Ada</option>
-                        <option value="1">1 - Ada, Tidak Terlaksana</option>
-                        <option value="2">2 - Ada, Terlaksana</option>
-                    </select>
-                    @elseif ($item->jenis_nilai === 'numerik' || $item->jenis_nilai === 'persentase')
-                    <input type="number" name="nilai[{{ $item->id }}]" class="form-control" min="0" max="100" required>
-                    @endif
+                    <input type="number" name="nilai[{{ $k->id }}]"
+                        value="{{ $evaluasi->get($k->id)->nilai ?? '' }}"
+                        min="0" max="100" class="form-control">
                 </td>
                 <td>
-                    <textarea name="komentar[{{ $item->id }}]" class="form-control" rows="2" placeholder="Tambahkan komentar..."></textarea>
+                    <textarea name="komentar[{{ $k->id }}]" class="form-control">{{ $evaluasi->get($k->id)->komentar ?? '' }}</textarea>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
-    <button type="submit" class="btn btn-success">Simpan Evaluasi</button>
+    <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
+
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Data Berhasil Disimpan',
+            text: '{{ session('success') }}',
+            showConfirmButton: true,
+            timer: 3000 // Menampilkan notifikasi selama 3 detik
+        });
+    </script>
+@endif
+
 @endsection
