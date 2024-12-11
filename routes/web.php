@@ -33,7 +33,17 @@ Route::resource('kriteria', KriteriaController::class)->only(['index', 'show']);
 Route::resource('dokumen', DokumenController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
 
 // Evaluasi Routes
-Route::resource('evaluasi', EvaluasiController::class)->only(['index', 'show', 'create', 'store']);
+// Route::resource('evaluasi', EvaluasiController::class)->only(['index', 'show', 'create', 'store']);
+
+Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
+
+Route::get('/evaluasi/calculate/{guru}', [EvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
+
+Route::get('/evaluasi/rekapitulasi', [EvaluasiController::class, 'rekapitulasi'])->name('evaluasi.rekapitulasi');
+Route::get('/evaluasi/{guru}', [EvaluasiController::class, 'show'])->name('evaluasi.show');
+Route::post('/evaluasi', [EvaluasiController::class, 'store'])->name('evaluasi.store');
+
+Route::get('/rekapitulasi', [EvaluasiController::class, 'rekapitulasi'])->name('rekapitulasi');
 
 // Penilaian Routes
 Route::resource('penilaian', PenilaianController::class);
