@@ -1,24 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Evaluasi Kinerja Guru</h1>
+<h1>Daftar Guru untuk Penilaian</h1>
+
 <table class="table">
     <thead>
         <tr>
             <th>Nama Guru</th>
             <th>NIP</th>
-            <th>Email</th>
             <th>Aksi</th>
         </tr>
     </thead>
-    <tbody>
+    {{-- {{ dd($evaluasi) }} --}}
         @foreach ($guru as $item)
         <tr>
             <td>{{ $item->nama }}</td>
             <td>{{ $item->nip }}</td>
-            <td>{{ $item->email }}</td>
             <td>
-                <a href="{{ route('evaluasi.show', $item->id) }}" class="btn btn-primary">Evaluasi</a>
+                <a href="{{ route('evaluasi.show', $item->id) }}" class="btn btn-primary">Berikan Penilaian</a>
             </td>
         </tr>
         @endforeach
