@@ -21,4 +21,9 @@ class Penilaian extends Model
     {
         return $this->belongsTo(Kriteria::class);
     }
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
 }
