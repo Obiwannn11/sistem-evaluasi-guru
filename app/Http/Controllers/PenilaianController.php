@@ -9,8 +9,9 @@ class PenilaianController extends Controller
 {
     public function index()
     {
-        $evaluasi = Evaluasi::with('penilaian.kriteria')->get();
-        return view('penilaian.index', compact('evaluasi'));
+        $evaluasi = Evaluasi::with('guru')->get();
+        $kriteria = Evaluasi::with('kriteria')->get();
+        return view('penilaian.index', compact('evaluasi', 'kriteria'));
     }
 
     public function edit($id)
