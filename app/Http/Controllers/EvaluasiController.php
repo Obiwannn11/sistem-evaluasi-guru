@@ -10,8 +10,8 @@ class EvaluasiController extends Controller
 {
     public function index()
     {
-        $evaluasi = Evaluasi::with('guru')->get();
-        return view('evaluasi.index', compact('evaluasi'));
+        $guru = Guru::with(['dokumen', 'evaluasi'])->get();
+        return view('evaluasi.index', compact('guru'));
     }
 
     public function create()
@@ -22,19 +22,41 @@ class EvaluasiController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'guru_id' => 'required|exists:guru,id',
-        ]);
+    // Validasi Input
+    $request->validate([
+        'guru_id' => 'required|exists:gurus,id',
+        'nilai' => 'required|array',
+        'nilai.*' => 'nullable|numeric|min:0|max:100',
+        'komentar' => 'nullable|array',
+        'komentar.*' => 'nullable|string|max:255',
+    ]);
 
-        $evaluasi = Evaluasi::create($validated);
+    $guruId = $request->input('guru_id');
+    $nilaiData = $request->input('nilai');
+    $komentarData = $request->input('komentar');
 
-        return redirect()->route('evaluasi.show', $evaluasi->id)->with('success', 'Evaluasi berhasil dibuat.');
+    foreach ($nilaiData as $kriteriaId => $nilai) {
+        Evaluasi::updateOrCreate(
+            [
+                'guru_id' => $guruId,
+                'kriteria_id' => $kriteriaId
+            ],
+            [
+                'nilai' => $nilai,
+                'komentar' => $komentarData[$kriteriaId] ?? null
+            ]
+        );
+    }
+    return redirect()->route('evaluasi.index')
+        ->with('success', 'Penilaian berhasil disimpan.');
     }
 
     public function show($id)
     {
-        $evaluasi = Evaluasi::with('guru', 'penilaian.kriteria')->findOrFail($id);
-        return view('evaluasi.show', compact('evaluasi'));
+        $guru = Guru::with('dokumen')->findOrFail($id);
+        $kriteria = Kriteria::all();
+        $evaluasi = Evaluasi::where('guru_id', $id)->get()->keyBy('kriteria_id');
+        return view('evaluasi.show', compact('guru', 'kriteria', 'evaluasi'));
     }
 
     public function calculateFinalScore($guruId)
@@ -63,11 +85,9 @@ class EvaluasiController extends Controller
     }
 
     public function rekapitulasi()
-{
-    $guru = Guru::with('evaluasi')->get();
-    $kriteria = Kriteria::all();
-
-    return view('evaluasi.rekapitulasi', compact('guru', 'kriteria'));
-}
+    {
+    $guru = Guru::with(['evaluasi.kriteria'])->get(); // Memuat data guru beserta evaluasinya
+    return view('evaluasi.rekapitulasi', compact('guru'));
+    }
 
 }
