@@ -21,4 +21,8 @@ class Guru extends Model
     {
         return $this->hasMany(Evaluasi::class, 'guru_id');
     }
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class, 'guru_id');
+    }
 }
