@@ -21,4 +21,8 @@ class Kriteria extends Model
     {
         return $this->hasMany(Dokumen::class, 'kriteria_id');
     }
+    public function evaluasi()
+    {
+        return $this->hasMany(Evaluasi::class,);
+    }
 }
