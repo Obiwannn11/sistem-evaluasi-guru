@@ -10,7 +10,7 @@ class Penilaian extends Model
 
     protected $table = 'penilaians';
 
-    protected $fillable = ['evaluasi_id', 'kriteria_id', 'nilai', 'komentar'];
+    protected $fillable = ['guru_id','evaluasi_id','kriteria_id', 'nilai', 'komentar'];
 
     public function evaluasi()
     {
