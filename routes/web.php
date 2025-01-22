@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SkorController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,15 @@ use App\Http\Controllers\PenilaianController;
 // ----------------------------------------------------------------
 
 // FIX ROUTER
+
+// Login Routes
+// Route::get('/login', function () {
+//         return view('login');
+//     });
+
+Route::get('/login', [AuthController::class, 'loginForm']);
+Route::post('/login', [AuthController::class, 'login']);
+
 // Guru Routes
 Route::resource('guru', GuruController::class);
 
