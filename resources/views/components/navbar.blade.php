@@ -6,7 +6,7 @@
             <a href="" class="logo d-flex align-items-center mx-4">
                 <img src="{{ asset('images/setting/logo-uin.png') }}" alt="">
                 {{-- BUAT DINAMIS BERDASARKAN SETTING  --}}
-                <span class="d-none d-lg-block mx-2">SMK MANDAR</span>
+                <span class="d-none d-lg-block mx-2">SMK ALAUDDIN</span>
             </a>
         </div><!-- End Logo -->
 
