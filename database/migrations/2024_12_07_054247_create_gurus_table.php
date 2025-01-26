@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('nip')->unique();
             $table->string('email')->unique();
             $table->string('telepon')->nullable();
+            $table->string('password', 255);
             $table->timestamps();
         });
     }
