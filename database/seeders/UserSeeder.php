@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Guru;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
@@ -13,20 +15,26 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Mustikasari',
-            'email' => 'admin@smkmadani.ac.id',
-            'password' => bcrypt('password'),
-            'role' => 'superguru', // Atau 'superguru'
-            'foto' => 'noprofil.png'
-        ]);
+        // Guru::create([
+        //     'nama' => 'Mustikasari',
+        //     'nip' => '0192832',
+        //     'email' => 'admin@smk.id',
+        //     'telepon' => '0812398212',
+        //     'is_admin' => true,
+        //     'password' => Hash::make('password'),
+        // ]);
 
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin123@smkmadani.ac.id',
-            'password' => bcrypt('admin123'),
-            'role' => 'superguru', // Atau 'superguru'
-            'foto' => 'noprofil.png'
-        ]);
+        // User::create([
+        //     'name' => 'RizkaMalyah',
+        //     'email' => 'rizka@smk.id',
+        //     'password' => Hash::make('password'),
+        // ]);
+
+        // User::create([
+        //     'name' => 'RizkaMalyah',
+        //     'email' => 'rizka@smk.id',
+        //     'password' => Hash::make('password'),
+        // ]);
+
     }
 }
