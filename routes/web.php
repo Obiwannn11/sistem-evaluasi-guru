@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\IsUser;
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
@@ -30,40 +32,57 @@ use App\Http\Controllers\PenilaianController;
 //         return view('login');
 //     });
 
-Route::get('/login', [AuthController::class, 'loginForm']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');;
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Guru Routes
-Route::resource('guru', GuruController::class);
+// HAK AKSES OLEH SUPER GURU / ADMIN==========================================
+// Middleware Group untuk mencegah akses dashboard tanpa login
+Route::middleware(['auth', IsAdmin::class])->group(function () {
+    //Routes Dashboard utama
+    Route::get('/dashboard', function(){
+        return view('dashboard.index');
+    })->name('dashboard');
+    // Guru Routes
+    Route::resource('guru', GuruController::class);
+    // Dokumen Routes
+    Route::resource('dokumen', DokumenController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
+    // Evaluasi Routes
+    Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
+    Route::get('/evaluasi/calculate/{guru}', [EvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
+    Route::get('/evaluasi/{guru}', [EvaluasiController::class, 'show'])->name('evaluasi.show');
+    Route::post('/evaluasi', [EvaluasiController::class, 'store'])->name('evaluasi.store');
+    // Penilaian Routes
+    Route::resource('penilaian', PenilaianController::class);
+});
+
 
 // Kriteria Routes
 Route::resource('kriteria', KriteriaController::class)->only(['index', 'show']);
 
-// Dokumen Routes
-Route::resource('dokumen', DokumenController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
 
-// Evaluasi Routes
-// Route::resource('evaluasi', EvaluasiController::class)->only(['index', 'show', 'create', 'store']);
+//BUATKAN MIDDLEWARE KHUSUS is_admin == false saja yang bisa akses route grup USER
 
-// Evaluasi Routes
-Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
-Route::get('/evaluasi/calculate/{guru}', [EvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
-Route::get('/evaluasi/{guru}', [EvaluasiController::class, 'show'])->name('evaluasi.show');
-Route::post('/evaluasi', [EvaluasiController::class, 'store'])->name('evaluasi.store');
+Route::middleware(['auth', IsUser::class])->group(function () {
+    Route::group(['prefix' => 'user'], function () {
+        //Routes Dashboard utama
+        Route::get('/dashboard', function(){
+            return view('user.dashboard.index');
+        })->name('user.dashboard');
+        // Guru Routes
+        Route::resource('guru', GuruController::class);
+        // Dokumen Routes
+        Route::resource('dokumen', DokumenController::class);
+        // Evaluasi Routes
+        Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
+        Route::get('/evaluasi/calculate/{guru}', [EvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
+        Route::get('/evaluasi/{guru}', [EvaluasiController::class, 'show'])->name('evaluasi.show');
+        Route::post('/evaluasi', [EvaluasiController::class, 'store'])->name('evaluasi.store');
+        // Penilaian Routes
+        Route::resource('penilaian', PenilaianController::class);
 
-// Penilaian Routes
-Route::resource('penilaian', PenilaianController::class);
-
-
-// Route::resource('/gurus', GuruController::class);
-// Route::resource('/kriterias', KriteriaController::class);
-// Route::resource('/dokumens', DokumenController::class);
-// Route::resource('/skors', SkorController::class);
-// Route::resource('/evaluasis', EvaluasiController::class);
-
-// Route::group(['prefix' => 'dashboard'], function () {
-//     Route::get('/', [UserController::class, 'home'])->name('dashboard');
-// });
+    });
+});
 
 // Route::group(['prefix' => 'admin'], function () {
 //     Route::get('/dashboard', 'UserController@index')->name('admin.dashboard');
