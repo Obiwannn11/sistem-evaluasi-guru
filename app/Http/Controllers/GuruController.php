@@ -49,6 +49,11 @@ class GuruController extends Controller
         return redirect()->route('guru.index')->with('success', 'Guru berhasil diperbarui.');
     }
 
+    public function show($id)
+    {
+        
+    }
+
     public function destroy($id)
     {
         Guru::findOrFail($id)->delete();
