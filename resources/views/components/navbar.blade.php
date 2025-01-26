@@ -21,18 +21,14 @@
             // SELECT * FROM user WHERE id_user = $id ");
             ?>
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" >
-                <?php if (1 === 1): ?>
                     <img src="{{ asset('images/setting/noprofil.png') }}" alt="" class="rounded-circle">
-                <?php else : ?>
-                    <img src="{{ asset('images/setting/noprofil.png') }}" alt="" class="rounded-circle">
-                <?php endif ?>
-                <span class="d-none d-md-block dropdown-toggle ps-2"  ></span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2"  ></span>
             </a><!-- End Profile Image Icon -->
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                <li class="dropdown-header">
-                    <h6>Nama    : Wawan</h6>
-                    <span>Role  : SuperAdmin</span>
+                <li class="dropdown-header text-start">
+                    <h6>Nama    : {{ Auth::User()->nama }} </h6>
+                    <span>Role  : {{ Auth::User()->is_admin == 0 ? "Guru" : "Kepala Sekolah"  }}</span>
                 </li>
                 <li>
                     <hr class="dropdown-divider">
@@ -69,10 +65,14 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Sign Out</span>
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        {{-- <button type="submit" class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> --}}
+                        <button type="submit" class="dropdown-item d-flex align-items-center" >
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span >Logout</span>
+                        </button>
+                    </form>
                 </li>
 
             </ul><!-- End Profile Dropdown Items -->
