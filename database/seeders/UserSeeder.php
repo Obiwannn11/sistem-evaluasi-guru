@@ -15,14 +15,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Guru::create([
-        //     'nama' => 'Mustikasari',
-        //     'nip' => '0192832',
-        //     'email' => 'admin@smk.id',
-        //     'telepon' => '0812398212',
-        //     'is_admin' => true,
-        //     'password' => Hash::make('password'),
-        // ]);
+        Guru::create([
+            'nama' => 'Mustikasari',
+            'nip' => '0192832',
+            'email' => 'admin@smk.id',
+            'telepon' => '0812398212',
+            'is_admin' => true,
+            'password' => Hash::make('password'),
+        ]);
 
         // User::create([
         //     'name' => 'RizkaMalyah',
