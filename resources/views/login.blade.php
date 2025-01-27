@@ -67,16 +67,20 @@
 
                                     <div class="pt-4 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Login Akun Guru</h5>
-                                        <p class="text-center small">Masukkan NIP dan Password untuk Login</p>
+                                        <p class="text-center small">Masukkan Email dan Password untuk Login</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate action="" method="post">
+                                    <form class="row g-3" action="{{ route('login') }}" method="post">
 
+                                        @error('error')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                        @csrf
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">NIP</label>
+                                            <label for="yourUsername" class="form-label">Email</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="username" class="form-control" id="yourUsername" required>
-                                                <div class="invalid-feedback">Masukkan NIP Anda!</div>
+                                                <input type="text" name="email" class="form-control" id="yourUsername" required>
+                                                <div class="invalid-feedback">Masukkan Email Anda!</div>
                                             </div>
                                         </div>
 
@@ -136,7 +140,7 @@
 <!-- plugins JS Files -->
 
 {{-- boostrap js  --}}
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hEmailjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 
