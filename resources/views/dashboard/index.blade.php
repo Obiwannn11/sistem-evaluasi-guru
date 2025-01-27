@@ -9,8 +9,8 @@
 <section class="section dashboard">
     <div class="row g-3 justify-content-center">
 
-        <!-- user -->
-        <div class="col-md-3">
+        <!-- namas -->
+        <div class="col-md-4">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
@@ -21,38 +21,17 @@
                             <i c lass='bx bx-user'></i>
                         </div> -->
                         <div class="">
-                            <h6><?= "Nama"; ?></h6>
+                            <h6>{{ Auth::User()->nama }}</h6>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- end user -->
+        <!-- end namas -->
 
-        <!-- slide -->
-        <div class="col-md-3">
-            <div class="card info-card sales-card">
-
-                <div class="card-body">
-                    <h5 class="card-title">Jabatan :</h5>
-
-                    <div class="d-flex align-items-center">
-                        <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i class='bx bx-image-alt'></i>
-                        </div> -->
-                        <div class="">
-                            <h6><?= "Role"; ?></h6>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- end user -->
-
-        <!-- prodi -->
-        <div class="col-md-3">
+        <!-- hak aksess -->
+        <div class="col-md-4">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
@@ -63,14 +42,37 @@
                             <i class='bx bx-buildings'></i>
                         </div> -->
                         <div class="">
-                            <h6><?= "Role"; ?></h6>
+                            <h6> {{ Auth::User()->is_admin == 0 ? "Guru" : "Kepala Sekolah"  }} </h6>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- end prodi -->
+        <!-- end hak aksess -->
+
+
+        <!-- emails -->
+        <div class="col-md-4">
+            <div class="card info-card sales-card">
+
+                <div class="card-body">
+                    <h5 class="card-title">Email :</h5>
+
+                    <div class="d-flex align-items-center">
+                        <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class='bx bx-image-alt'></i>
+                        </div> -->
+                        <div class="">
+                            <h6> {{ Auth::User()->email }}</h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end emails -->
+
 
         <!-- status perencanaan -->
         <div class="col-md-4">
