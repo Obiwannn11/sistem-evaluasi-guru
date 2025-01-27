@@ -1,6 +1,3 @@
-## README.md untuk Sistem Evaluasi Guru
-
-```markdown
 # Sistem Evaluasi Guru
 
 ![Logo Sistem Evaluasi Guru](path/to/logo.png)
