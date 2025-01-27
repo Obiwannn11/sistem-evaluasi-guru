@@ -11,6 +11,10 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\UserGuruController;
+use App\Http\Controllers\UserDokumenController;
+use App\Http\Controllers\UserEvaluasiController;
+use App\Http\Controllers\UserPenilaianController;
 
 
 // CONTOH ROUTING
@@ -64,22 +68,22 @@ Route::resource('kriteria', KriteriaController::class)->only(['index', 'show']);
 //BUATKAN MIDDLEWARE KHUSUS is_admin == false saja yang bisa akses route grup USER
 
 Route::middleware(['auth', IsUser::class])->group(function () {
-    Route::group(['prefix' => 'user'], function () {
+    Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         //Routes Dashboard utama
         Route::get('/dashboard', function(){
             return view('user.dashboard.index');
-        })->name('user.dashboard');
+        })->name('dashboard');
         // Guru Routes
-        Route::resource('guru', GuruController::class);
+        Route::resource('guru', UserGuruController::class);
         // Dokumen Routes
-        Route::resource('dokumen', DokumenController::class);
+        Route::resource('dokumen', UserDokumenController::class);
         // Evaluasi Routes
-        Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
-        Route::get('/evaluasi/calculate/{guru}', [EvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
-        Route::get('/evaluasi/{guru}', [EvaluasiController::class, 'show'])->name('evaluasi.show');
-        Route::post('/evaluasi', [EvaluasiController::class, 'store'])->name('evaluasi.store');
+        Route::get('/evaluasi', [UserEvaluasiController::class, 'index'])->name('evaluasi.index');
+        // Route::get('/evaluasi/calculate/{guru}', [UserEvaluasiController::class, 'calculateFinalScore'])->name('evaluasi.calculate');
+        Route::get('/evaluasi/{guru}', [UserEvaluasiController::class, 'show'])->name('evaluasi.show');
+        Route::post('/evaluasi', [UserEvaluasiController::class, 'store'])->name('evaluasi.store');
         // Penilaian Routes
-        Route::resource('penilaian', PenilaianController::class);
+        Route::resource('penilaian', UserPenilaianController::class);
 
     });
 });
