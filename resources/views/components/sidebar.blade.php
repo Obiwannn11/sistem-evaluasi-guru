@@ -94,7 +94,7 @@
 
         {{-- nav item dashboard --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard') }}">
+            <a class="nav-link collapsed" href="{{ route('user.dashboard') }}">
                 <i class="bi bi-house-door"></i><span>Dashboard</span>
             </a>
         </li>
@@ -125,7 +125,7 @@
 
         {{-- nav item guru --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('guru.index') }}" <i class='bi bi-grid'></i>
+            <a class="nav-link collapsed" href="{{ route('user.guru.index') }}" <i class='bi bi-grid'></i>
                 <i class="bi bi-person-circle"></i><span>Guru</span>
             </a>
         </li>
@@ -133,7 +133,7 @@
 
         {{-- nav item dokumen --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dokumen.index') }}" <i class='bi bi-grid'></i>
+            <a class="nav-link collapsed" href="{{ route('user.dokumen.index') }}" <i class='bi bi-grid'></i>
                 <i class="bi bi-file-earmark"></i><span>Dokumen</span>
             </a>
         </li>
@@ -157,7 +157,7 @@
 
         {{-- nav item evaluasi --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('evaluasi.index') }}" <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="{{ route('user.evaluasi.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-clipboard-check"></i><span>Evaluasi</span>
             </a>
         </li>
@@ -165,7 +165,7 @@
 
         {{-- nav item penilaian --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('penilaian.index') }}" <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="{{ route('user.penilaian.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-trophy"></i><span>Penilaian</span>
             </a>
         </li>
