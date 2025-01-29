@@ -1,26 +1,26 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Daftar Guru untuk Penilaian</h1>
+<h1>Detail Penilaian Guru: {{ Auth::User()->nama }}</h1>
+<p>NIP: {{ Auth::User()->nip }}</p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Nama Guru</th>
-            <th>NIP</th>
-            <th>Aksi</th>
+            <th>Kriteria</th>
+            <th>Nilai</th>
+            <th>Komentar</th>
         </tr>
     </thead>
-    {{-- {{ dd($evaluasi) }} --}}
-        @foreach ($guru as $item)
+    <tbody>
+        @foreach ($evaluasi as $e)
         <tr>
-            <td>{{ $item->nama }}</td>
-            <td>{{ $item->nip }}</td>
-            <td>
-                <a href="{{ route('evaluasi.show', $item->id) }}" class="btn btn-primary">Berikan Penilaian</a>
-            </td>
+            <td>{{ $e->kriteria->nama }}</td> <!-- Asumsi ada relasi kriteria di model Evaluasi -->
+            <td>{{ $e->nilai ?? 0 }}</td>
+            <td>{{ $e->komentar ?? 'Tidak ada Komentar'}}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<a href="" class="btn btn-success"><i class="bi bi-printer"></i> Cetak Nilai</a>
 @endsection
