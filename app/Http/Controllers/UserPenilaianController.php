@@ -5,38 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use App\Models\Evaluasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserPenilaianController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+        */
     public function index()
     {
-        $gurus = Guru::all();
+        // Ambil ID user yang sedang login  (Guru)
+        $id = Auth::User()->id;
+        $nama = Auth::User()->nama;
 
-        // Inisialisasi array untuk menyimpan data guru dan total nilai
-        $dataGurus = [];
+        // Ambil data guru
+        // $guru = Guru::with('evaluasi.kriteria')->findOrFail($id);
 
-        foreach ($gurus as $guru) {
-            // Ambil semua evaluasi berdasarkan ID guru
-            $evaluasi = Evaluasi::where('guru_id', $guru->id)->get();
+        // Ambil semua evaluasi berdasarkan ID guru
+        $evaluasi = Evaluasi::where('guru_id', $id)->get();
 
-            // Hitung total nilai dari evaluasi
-            $totalNilai = 0;
-
-            foreach ($evaluasi as $e) {
-                // Asumsikan nilai kriteria disimpan di kolom 'nilai' di model Evaluasi
-                $totalNilai += $e->nilai ?? 0; // Jika nilai null, anggap sebagai 0
-            }
-
-            // Simpan data guru dan total nilai ke dalam array
-            $dataGurus[] = [
-                'guru' => $guru,
-                'nilai' => $totalNilai,
-            ];
-        }
-        return view('penilaian.index', compact('dataGurus'));
+        return view('user.evaluasi.index', compact('evaluasi', 'nama'));
     }
 
     /**
