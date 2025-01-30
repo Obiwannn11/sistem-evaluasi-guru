@@ -12,7 +12,7 @@ class Guru extends Authenticatable
 
     protected $table = 'gurus';
 
-    protected $fillable = ['nama', 'nip', 'email', 'telepon'];
+    protected $fillable = ['nama', 'nip', 'email', 'telepon', 'password'];
 
     public function dokumen()
     {
