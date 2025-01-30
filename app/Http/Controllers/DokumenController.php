@@ -27,14 +27,21 @@ class DokumenController extends Controller
         $validated = $request->validate([
             'guru_id' => 'required|exists:gurus,id',
             'kriteria_id' => 'required|exists:kriterias,id',
-            'file_path' => 'required|file|mimes:pdf,doc,docx',
+            'file_path' => 'required|file|mimes:pdf,doc,docx|max:5210',
         ]);
 
-        $validated['file_path'] = $request->file('file_path')->store('dokumen');
+        // mengatur penyimpanan file
+        // variabel = kolom file_path -> di masukkan ke dalam path storage/app/public/dokumen di dalam disk public
+        $filePath = $request->file('file_path')->store('dokumen', 'public');
+
+        // $validated['file_path'] = basename($filePath); // digunakan jika hanya simpan nama file tanpa nama path di database
+        $validated['file_path'] = $filePath; // digunakan jika simpan nama beserta path di database
+
         Dokumen::create($validated);
 
         return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil diunggah.');
     }
+
 
     public function show($id)
     {
