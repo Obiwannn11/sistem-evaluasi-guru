@@ -21,6 +21,10 @@
         <label for="telepon" class="form-label">Telepon</label>
         <input type="text" name="telepon" value="{{ $guru->telepon }}" class="form-control" required>
     </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="text" name="password" class="form-control" >
+    </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
 @endsection
