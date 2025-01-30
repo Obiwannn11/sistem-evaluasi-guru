@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
@@ -24,7 +25,10 @@ class GuruController extends Controller
             'nip' => 'required|unique:gurus',
             'email' => 'required|email|unique:gurus',
             'telepon' => 'required',
+            'password' => 'required',
         ]);
+        // Hash password sebelum menyimpan
+        $validated['password'] = Hash::make($validated['password']);
 
         Guru::create($validated);
         return redirect()->route('guru.index')->with('success', 'Guru berhasil ditambahkan.');
@@ -40,10 +44,18 @@ class GuruController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required',
-            'nip' => 'required|unique:guru,nip,' . $id,
-            'email' => 'required|email|unique:guru,email,' . $id,
+            'nip' => 'required|unique:gurus,nip,' . $id,
+            'email' => 'required|email|unique:gurus,email,' . $id,
             'telepon' => 'required',
+            'password' => 'nullable',
         ]);
+        // Jika password diisi, hash dan simpan
+        if (!empty($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        } else {
+            // Jika password tidak diisi, hapus dari array validated
+            unset($validated['password']);
+    }
 
         Guru::findOrFail($id)->update($validated);
         return redirect()->route('guru.index')->with('success', 'Guru berhasil diperbarui.');
@@ -51,7 +63,7 @@ class GuruController extends Controller
 
     public function show($id)
     {
-        
+
     }
 
     public function destroy($id)
