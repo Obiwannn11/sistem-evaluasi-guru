@@ -156,11 +156,11 @@
         {{-- end of nav item skor --}}
 
         {{-- nav item evaluasi --}}
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('user.evaluasi.index') }}" <i class="bi bi-grid"></i>
                 <i class="bi bi-clipboard-check"></i><span>Evaluasi</span>
             </a>
-        </li>
+        </li> --}}
         {{-- end of nav item evaluasi --}}
 
         {{-- nav item penilaian --}}
