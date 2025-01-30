@@ -71,7 +71,7 @@
         {{-- nav item evaluasi --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('evaluasi.index') }}" <i class="bi bi-grid"></i>
-                <i class="bi bi-clipboard-check"></i><span>Evaluasi</span>
+                <i class="bi bi-clipboard-check"></i><span>Berikan Evaluasi</span>
             </a>
         </li>
         {{-- end of nav item evaluasi --}}
@@ -79,7 +79,7 @@
         {{-- nav item penilaian --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('penilaian.index') }}" <i class="bi bi-grid"></i>
-                <i class="bi bi-trophy"></i><span>Penilaian</span>
+                <i class="bi bi-trophy"></i><span>Hasil Penilaian</span>
             </a>
         </li>
         {{-- end of nav item penilaian --}}
