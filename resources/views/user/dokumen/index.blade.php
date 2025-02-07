@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Dokumen Anda ({{ Auth::User()->nama }})</h1>
-<a href="{{ route('dokumen.create') }}" class="btn btn-primary">Unggah Dokumen Baru</a>
+<a href="{{ route('user.dokumen.create') }}" class="mb-3 btn btn-primary">Unggah Dokumen Baru</a>
 <table class="table">
     <thead>
         <tr>
