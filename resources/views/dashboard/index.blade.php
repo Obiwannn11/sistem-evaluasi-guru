@@ -77,7 +77,6 @@
         <!-- status perencanaan -->
         <div class="col-md-4">
             <div class="card info-card sales-card">
-
                 <div class="card-body">
                     <h5 class="card-title">Status Perencanaan :</h5>
 
