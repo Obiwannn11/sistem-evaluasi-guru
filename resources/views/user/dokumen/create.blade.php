@@ -2,27 +2,26 @@
 
 @section('content')
 <h1>Unggah Dokumen</h1>
-<form action="{{ route('dokumen.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('user.dokumen.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="mb-3">
+    <div class="mb-3 col-md-5">
         <label for="guru_id" class="form-label">Guru</label>
-        <select name="guru_id" class="form-control" required>
-            @foreach ($guru as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-            @endforeach
-        </select>
+        <input type="text" id="guru_id" class="form-control" name="guru_id" value="{{ $guru->nama }}" disabled>
+        <input type="hidden" name="guru_id" value="{{ $guru->id }}"> <!-- Menyimpan ID guru yang sebenarnya -->
     </div>
-    <div class="mb-3">
+    <div class="mb-3 col-md-5">
         <label for="kriteria_id" class="form-label">Kriteria</label>
-        <select name="kriteria_id" class="form-control" required>
-            @foreach ($kriteria as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+        <select id="kriteria_id" class="form-select" name="kriteria_id" required>
+            <option value="">Pilih Kriteria</option>
+            @foreach($kriteria as $kriterias)
+                <option value="{{ $kriterias->id }}">{{ $kriterias->nama }}</option>
             @endforeach
         </select>
     </div>
-    <div class="mb-3">
-        <label for="file_path" class="form-label">File</label>
-        <input type="file" name="file_path" class="form-control" required>
+    <div class="mb-3 col-md-5">
+        <label for="file_path" class="form-label">File Dokumen</label>
+        <input type="file" id="file_path" name="file_path" class="form-control" accept=".pdf,.doc,.docx" required>
+        <small class="form-text text-muted">Hanya file PDF atau Word (maksimal 5 MB).</small>
     </div>
     <button type="submit" class="btn btn-primary">Unggah</button>
 </form>
