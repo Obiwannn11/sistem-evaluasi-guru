@@ -22,7 +22,7 @@
     </div>
     <div class="mb-3">
         <label for="file_path" class="form-label">File</label>
-        <input type="file" name="file_path" class="form-control" required>
+        <input type="file" name="file_path" class="form-control" accept=".pdf,.doc,.docx" required>
     </div>
     <button type="submit" class="btn btn-primary">Unggah</button>
 </form>
