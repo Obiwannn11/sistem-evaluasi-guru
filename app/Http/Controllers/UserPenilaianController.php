@@ -24,7 +24,7 @@ class UserPenilaianController extends Controller
         // Ambil semua evaluasi berdasarkan ID guru
         $evaluasi = Evaluasi::where('guru_id', $id)->get();
 
-        return view('user.evaluasi.index', compact('evaluasi', 'nama'));
+        return view('user.penilaian.index', compact('evaluasi', 'nama'));
     }
 
     /**
