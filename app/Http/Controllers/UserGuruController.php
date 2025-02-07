@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserGuruController extends Controller
 {
@@ -65,7 +66,8 @@ class UserGuruController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Guru::findOrFail($id);
+        return view('user.guru.edit', compact('data'));
     }
 
     /**
@@ -73,7 +75,26 @@ class UserGuruController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $validated = $request->validate([
+            'nama' => 'required',
+            'nip' => 'required|unique:gurus,nip,' . $id,
+            'email' => 'required|email|unique:gurus,email,' . $id,
+            'telepon' => 'required',
+            'password' => 'nullable',
+        ]);
+
+        // Jika password diisi, hash dan simpan
+        if (!empty($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        } else {
+            // Jika password tidak diisi, hapus dari array validated
+            unset($validated['password']);
+        }
+
+        Guru::findOrFail($id)->update($validated);
+        return redirect()->route('user.guru.index')->with('success', 'Data Kamu berhasil diperbarui.');
+        // return view('user.guru.index');
     }
 
     /**
