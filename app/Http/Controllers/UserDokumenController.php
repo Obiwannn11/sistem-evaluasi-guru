@@ -7,6 +7,7 @@ use App\Models\Dokumen;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserDokumenController extends Controller
 {
@@ -45,14 +46,24 @@ class UserDokumenController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $validated = $request->validate([
             'guru_id' => 'required|exists:gurus,id',
             'kriteria_id' => 'required|exists:kriterias,id',
             'file_path' => 'required|file|mimes:pdf,doc,docx|max:5210',
         ]);
 
-        dd($validated);
+
+        // Check if a document with the same guru_id and kriteria_id already exists
+        $existingDocument = Dokumen::where('guru_id', $validated['guru_id'])
+        ->where('kriteria_id', $validated['kriteria_id'])
+        ->exists();
+
+        if ($existingDocument) {
+        // If a document exists, return an error
+        return redirect()->route('user.dokumen.index')->withErrors(['unique_dokumen' => 'Dokumen dengan Kriteria ini sudah diupload, silahkan hapus file sebelumnya']);
+        // return redirect()->route('user.dokumen.index');
+        }
+
         // mengatur penyimpanan file
         // variabel = kolom file_path -> di masukkan ke dalam path storage/app/public/dokumen di dalam disk public
         $filePath = $request->file('file_path')->store('dokumen', 'public');
@@ -62,7 +73,7 @@ class UserDokumenController extends Controller
 
         Dokumen::create($validated);
 
-        return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil diunggah.');
+        return redirect()->route('user.dokumen.index')->with('success', 'Dokumen berhasil diunggah.');
 
     }
 
@@ -95,6 +106,25 @@ class UserDokumenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $dokumen = Dokumen::findOrFail($id);
+        // dd($dokumen);
+         // 1. Hapus file terkait dari storage
+        //  if (Storage::disk('public')->exists($dokumen->file_path)) { // Cek apakah file ada di storage sebelum dihapus
+        //     Storage::disk('public')->delete($dokumen->file_path);
+        // }
+
+        // 2. Hapus record Dokumen dari database
+        $dokumen->delete();
+
+        // 3. Redirect ke route index dengan pesan sukses
+        return redirect()->route('user.dokumen.index')->with('success', 'Dokumen berhasil dihapus.');
+
+        // $dokumen = Dokumen::findOrFail($id);
+        // unlink(storage_path('app/' . $dokumen->file_path));
+        // $dokumen->delete();
+
+        // return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil dihapus.');
+
     }
 }
