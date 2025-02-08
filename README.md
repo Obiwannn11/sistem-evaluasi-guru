@@ -86,9 +86,12 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan Sistem Evaluasi 
    ```bash
    php artisan db:seed
    ```
-   untuk Sementara Belum ada Seeder
+   untuk Sementara gunakan Seeder ini
+   ```bash
+   php artisan db:seed --class=UserSeeder
+   ```
 
-8. **Jalankan Aplikasi**
+9. **Jalankan Aplikasi**
 
    ```bash
    php artisan serve
