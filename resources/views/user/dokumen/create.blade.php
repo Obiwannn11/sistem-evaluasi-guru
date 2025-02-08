@@ -23,6 +23,9 @@
         <input type="file" id="file_path" name="file_path" class="form-control" accept=".pdf,.doc,.docx" required>
         <small class="form-text text-muted">Hanya file PDF atau Word (maksimal 5 MB).</small>
     </div>
-    <button type="submit" class="btn btn-primary">Unggah</button>
+    <div class="mb-3 col-md-5 d-flex justify-content-between">
+        <a href="{{ route('user.dokumen.index') }}" class="btn btn-secondary">Kembali</a>
+        <button type="submit" class="btn btn-primary">Unggah</button>
+    </div>
 </form>
 @endsection
