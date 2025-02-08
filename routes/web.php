@@ -18,9 +18,9 @@ use App\Http\Controllers\UserPenilaianController;
 
 
 // CONTOH ROUTING
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/', function () {
 //     return view('dashboard.index');
