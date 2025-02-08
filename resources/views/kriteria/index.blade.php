@@ -6,14 +6,14 @@
     <thead>
         <tr>
             <th>Nama Kriteria</th>
-            <th>Jenis Nilai</th>
+            {{-- <th>Jenis Nilai</th> --}}
         </tr>
     </thead>
     <tbody>
         @foreach ($kriteria as $item)
         <tr>
             <td>{{ $item->nama }}</td>
-            <td>{{ $item->tipe }}</td>
+            {{-- <td>{{ $item->tipe }}</td> --}}
         </tr>
         @endforeach
     </tbody>
