@@ -3,10 +3,10 @@
 
         <div class="d-flex align-items-center justify-content-between ">
             <i class="bi bi-list toggle-sidebar-btn"></i>
-            <a href="" class="logo d-flex align-items-center mx-4">
-                <img src="{{ asset('images/setting/logo-uin.png') }}" alt="">
+            <a href="{{ route('user.dashboard') }}" class="logo d-flex align-items-center mx-4">
+                <img src="{{ asset('images/setting/smkmandar.png') }}" alt="">
                 {{-- BUAT DINAMIS BERDASARKAN SETTING  --}}
-                <span class="d-none d-lg-block mx-2">SMK ALAUDDIN</span>
+                <span class="d-none d-lg-inline mx-2 flex-shrink-0">SMK Madani Mandar</span>
             </a>
         </div><!-- End Logo -->
 
