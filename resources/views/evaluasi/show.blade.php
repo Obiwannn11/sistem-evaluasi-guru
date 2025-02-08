@@ -22,7 +22,7 @@
                 <td>{{ $k->nama }}</td>
                 <td>
                     @if ($guru->dokumen->where('kriteria_id', $k->id)->first())
-                        <a href="{{ Storage::url($guru->dokumen->where('kriteria_id', $k->id)->first()->path) }}" target="_blank">Lihat Dokumen</a>
+                        <a href="{{ asset('storage/' . $guru->dokumen->where('kriteria_id', $k->id)->first()->file_path) }}" target="_blank">Lihat Dokumen</a>
                     @else
                         <span class="text-danger">Belum Diunggah</span>
                     @endif
