@@ -24,7 +24,12 @@ class UserPenilaianController extends Controller
         // Ambil semua evaluasi berdasarkan ID guru
         $evaluasi = Evaluasi::where('guru_id', $id)->get();
 
-        return view('user.penilaian.index', compact('evaluasi', 'nama'));
+        // Hitung total nilai dari semua evaluasi
+        $totalNilai = $evaluasi->sum('nilai')/12;
+
+        // dd($evaluasi->pluck('nilai')); melihat kolom nilai dari semua data
+
+        return view('user.penilaian.index', compact('evaluasi', 'nama', 'totalNilai'));
     }
 
     /**
