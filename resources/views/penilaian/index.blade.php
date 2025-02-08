@@ -18,7 +18,7 @@
         <tr>
             <td>{{ $data['guru']->nama }}</td>
             <td>{{ $data['guru']->nip }}</td>
-            <td>{{ $data['nilai'] }}</td>
+            <td>{{ $data['nilai']/12 }}</td>
             <td>
                 <a href="{{ route('penilaian.show', $data['guru']->id) }}" class="btn btn-info">Lihat Detail</a>
             </td>
