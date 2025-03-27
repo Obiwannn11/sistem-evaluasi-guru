@@ -70,9 +70,11 @@ Route::resource('kriteria', KriteriaController::class)->only(['index', 'show']);
 Route::middleware(['auth', IsUser::class])->group(function () {
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         //Routes Dashboard utama
-        Route::get('/dashboard', function(){
-            return view('user.dashboard.index');
-        })->name('dashboard');
+        // Route::get('/dashboard', function(){
+        //     return view('user.dashboard.index');
+        // })->name('dashboard');
+
+        Route::get('/dashboard',[UserController::class, 'showUploadedFile'])->name('dashboard');
         // Guru Routes
         Route::resource('guru', UserGuruController::class);
         // Dokumen Routes
