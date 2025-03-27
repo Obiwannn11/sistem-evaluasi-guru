@@ -3,10 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Dokumen;
+use App\Models\Evaluasi;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function showUploadedFile(){
+        //AMBIL Semua Kriteria
+        $totalKriteria = Kriteria::all()->count();
+        // dd($totalKriteria);
+
+        //Mengambil JUMLAH File Yang Seharusnya di upload Guru
+        $total_file = Dokumen::where('guru_id', Auth::user()->id)->get()->count();
+
+        
+        // Menampilkan JUMLAH file yang yang sudah di NILAI
+        $total_dinilai = Evaluasi::where('guru_id', Auth::user()->id)->where('nilai', '!=', null)->get()->count();
+        // dd($total_dinilai);
+        
+        //Mengirimkan data JUMLAH data file yang sudah di upload dan data yang belum di upload
+        return view('user.dashboard.index', compact( 'total_file', 'totalKriteria', 'total_dinilai'));
+    }
     /**
      * Display a listing of the resource.
      */
