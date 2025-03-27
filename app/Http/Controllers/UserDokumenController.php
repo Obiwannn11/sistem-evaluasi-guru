@@ -37,8 +37,17 @@ class UserDokumenController extends Controller
     {
         $user = Auth::user()->id;
         $guru = Guru::find($user);
-        $kriteria = Kriteria::all();
-        return view('user.dokumen.create', compact('guru', 'kriteria'));
+
+        $selectKriteria = Kriteria::whereNotIn('id', function ($query) { //menampilkan data yang tidak ada dari ....
+            $query->select('kriteria_id') // kolom kriteria id
+            ->from('dokumens') //dari tabel dokumen
+            ->where('guru_id', Auth::user()->id); //di mana guru_id = user yang login
+        })
+        ->get();
+
+        // dd($selectKriteria);
+        
+        return view('user.dokumen.create', compact('guru', 'selectKriteria'));
     }
 
     /**
