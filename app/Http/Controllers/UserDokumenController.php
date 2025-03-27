@@ -109,10 +109,11 @@ class UserDokumenController extends Controller
 
         $dokumen = Dokumen::findOrFail($id);
         // dd($dokumen);
-         // 1. Hapus file terkait dari storage
-        //  if (Storage::disk('public')->exists($dokumen->file_path)) { // Cek apakah file ada di storage sebelum dihapus
-        //     Storage::disk('public')->delete($dokumen->file_path);
-        // }
+        //  1. Hapus file terkait dari storage
+         if (Storage::disk('public')->exists($dokumen->file_path)) { // Cek apakah file ada di storage sebelum dihapus
+            // dd($dokumen->file_path);
+            Storage::disk('public')->delete($dokumen->file_path);
+        }
 
         // 2. Hapus record Dokumen dari database
         $dokumen->delete();
