@@ -12,8 +12,9 @@
     <div class="mb-3 col-md-5">
         <label for="kriteria_id" class="form-label">Kriteria</label>
         <select id="kriteria_id" class="form-select" name="kriteria_id" required>
-            <option value="">Pilih Kriteria</option>
-            @foreach($kriteria as $kriterias)
+            
+            <option value="" disabled selected>Pilih Kriteria</option>
+            @foreach($selectKriteria as $kriterias)
                 <option value="{{ $kriterias->id }}">{{ $kriterias->nama }}</option>
             @endforeach
         </select>
