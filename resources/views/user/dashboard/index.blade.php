@@ -4,7 +4,7 @@
 
 
 <div class="card shadow p-3">
-    <h5> <strong> Dashboard</strong></h5>
+    <h5> <strong> Dashboard Guru </strong></h5>
 </div>
 
 <section class="section dashboard">
@@ -76,18 +76,18 @@
 
 
         <!-- status perencanaan -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
-                    <h5 class="card-title">Dokumen Yang Sudah Di Upload  :</h5>
+                    <h5 class="card-title">Jumlah Dokumen Yang Sudah Di Upload  :</h5>
 
                     <div class="d-flex align-items-center">
                         <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                             <i class='bx bx-buildings'></i>
                         </div> -->
                         <div class="">
-                            <h6> 5 / 12 Total Dokumen</h6>
+                            <h6> {{ $total_file . ' dari ' .  $totalKriteria }}   Total Dokumen</h6>
                         </div>
                     </div>
                 </div>
@@ -97,18 +97,18 @@
         <!-- end status perencanaan -->
 
         <!-- status evaluasi -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="card info-card sales-card">
 
                 <div class="card-body">
-                    <h5 class="card-title">Dokumen Yang Sudah Di Nilai :</h5>
+                    <h5 class="card-title">Jumlah Dokumen Yang Sudah Di Nilai :</h5>
 
                     <div class="d-flex align-items-center">
                         <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                             <i class='bx bx-buildings'></i>
                         </div> -->
                         <div class="">
-                            <h6> 2/4 Dokumen Diupload</h6>
+                            <h6>  {{ $total_dinilai . ' dari ' . $total_file }} Dokumen Di Upload</h6>
                         </div>
                     </div>
                 </div>
