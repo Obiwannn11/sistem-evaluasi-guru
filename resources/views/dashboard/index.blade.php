@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="card shadow p-3">
-    <h5>Dashboard</h5>
+    <h5> <strong> Dashboard Super Guru </strong></h5>
 </div>
 
 <section class="section dashboard">
