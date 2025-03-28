@@ -17,7 +17,7 @@
         <tr>
             <td>{{ $item->guru->nama }}</td>
             <td>{{ $item->kriteria->nama }}</td>
-            <td><a href="{{ asset('storage/' . $item->file_path) }}" target="_blank">Lihat File</a></td>
+            <td><a href="{{ asset('storage/' . $item->file_path) }}" target="_blank" class="btn btn-success"><i class="bi bi-file-earmark-text"></i> Lihat File</a></td>
             <td>
                 <form action="{{ route('dokumen.destroy', $item->id) }}" method="POST" style="display:inline;">
                     @csrf
