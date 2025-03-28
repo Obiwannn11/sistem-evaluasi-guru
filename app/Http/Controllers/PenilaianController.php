@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\Evaluasi;
+use App\Models\Kriteria;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,13 +12,7 @@ class PenilaianController extends Controller
 {
     public function index()
     {
-        // $guru = Guru::with(['evaluasi.kriteria'])->get(); // Memuat data guru beserta evaluasinya
-        // $evaluasi = Evaluasi::with('guru')->get();
-        // $kriteria = Evaluasi::with('kriteria')->get();
-        // return view('penilaian.index', compact('evaluasi', 'kriteria', 'guru'));
-
-         // Ambil semua guru dan total nilai mereka
-// Ambil semua guru
+        // Ambil semua guru
         $gurus = Guru::all();
 
         // Inisialisasi array untuk menyimpan data guru dan total nilai
@@ -31,7 +26,7 @@ class PenilaianController extends Controller
             $totalNilai = 0;
 
             foreach ($evaluasi as $e) {
-                // Asumsikan nilai kriteria disimpan di kolom 'nilai' di model Evaluasi
+                // nilai kriteria disimpan di kolom 'nilai' di model Evaluasi
                 $totalNilai += $e->nilai ?? 0; // Jika nilai null, anggap sebagai 0
             }
 
@@ -40,9 +35,11 @@ class PenilaianController extends Controller
                 'guru' => $guru,
                 'nilai' => $totalNilai,
             ];
+
+            $jumlahKriteria = Kriteria::all()->count();
         }
 
-        return view('penilaian.index', compact('dataGurus'));
+        return view('penilaian.index', compact('dataGurus', 'jumlahKriteria'));
     }
 
     public function edit($id)
