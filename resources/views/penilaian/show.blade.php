@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Detail Penilaian Guru: {{ $guru->nama }}</h1>
-<p>NIP: {{ $guru->nip }}</p>
+<h5 class="mb-3">NIP: {{ $guru->nip }}</h5>
 
 <table class="table">
     <thead>
@@ -15,8 +15,8 @@
     <tbody>
         @foreach ($evaluasi as $e)
         <tr>
-            <td>{{ $e->kriteria->nama }}</td> <!-- Asumsi ada relasi kriteria di model Evaluasi -->
-            <td>{{ $e->nilai ?? 0 }}</td>
+            <td class="fw-bold">{{ $e->kriteria->nama }}</td> <!-- Asumsi ada relasi kriteria di model Evaluasi -->
+            <td class="fw-bold">{{ $e->nilai ?? "Belum Dinilai" }}</td>
             <td>{{ $e->komentar ?? 'Tidak ada Komentar'}}</td>
         </tr>
         @endforeach
