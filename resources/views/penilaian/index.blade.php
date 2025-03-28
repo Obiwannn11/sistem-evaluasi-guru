@@ -18,7 +18,7 @@
         <tr>
             <td>{{ $data['guru']->nama }}</td>
             <td>{{ $data['guru']->nip }}</td>
-            <td>{{ $data['nilai']/12 }}</td>
+            <td>{{ $data['nilai']/$jumlahKriteria }}</td>
             <td>
                 <a href="{{ route('penilaian.show', $data['guru']->id) }}" class="btn btn-info">Lihat Detail</a>
             </td>
