@@ -9,7 +9,9 @@ class GuruController extends Controller
 {
     public function index()
     {
-        $guru = Guru::all();
+        $guru = Guru::where('is_admin', 0)->get();
+
+        // dd($guru);
         return view('guru.index', compact('guru'));
     }
 
